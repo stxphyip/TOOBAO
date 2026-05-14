@@ -1,0 +1,29 @@
+.avatarRow {
+  display: flex;
+  gap: 10px;
+  margin: 8px 12px 12px;
+  align-items: center;
+}
+
+.avatarBtn {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  border: 3px solid transparent;
+  overflow: hidden;
+  padding: 0;
+  background: #eee;
+  cursor: pointer;
+}
+
+.avatarBtn img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.avatarSelected {
+  border-color: var(--taobao-orange);
+}

@@ -1,0 +1,442 @@
+/* styles/components/home-feed.css */
+
+.homeProducts {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  background: #FFBB87;
+}
+
+.homeFeedWrap {
+  width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 8px;
+}
+
+.homeTopArea {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.homeProductsSection,
+.homeProductsGrid,
+.homeSectionTitle {
+  width: 420px;
+}
+
+#homeTopStatsBlock {
+  width: 400px;
+  flex: 0 0 auto;
+}
+
+#homeHelperBar {
+  width: 420px;
+  height: 220px;
+  min-width: 420px;
+  max-width: 420px;
+  min-height: 220px;
+  max-height: 220px;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.homeSectionTitle {
+  width: 400px;
+  margin: 0;
+  padding-left: 8px;
+  box-sizing: border-box;
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+  line-height: 1;
+  color: #5b2419;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+}
+
+/* =========================
+   HELPER HOST
+========================= */
+
+#homeHelperBar {
+  width: 420px;
+  min-height: 220px;
+  margin: 0;
+  display: block;
+}
+
+/* =========================
+   PRODUCTS GRID
+========================= */
+
+.homeProductsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.homeProductsGrid {
+  width: 420px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.homeFeedCol {
+  width: 204px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.homeProductCard {
+  width: 204px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center top;
+  box-sizing: border-box;
+  overflow: visible; /* 🔥 important */
+}
+
+.homeProductCard.isShort {
+  height: 270px;
+  background-image: url("../../assets/homepage/whiteproducttileshort.png");
+  background-size: 204px 270px;
+  padding: 16px 14px 12px;
+}
+
+.homeProductCard.isTall {
+  height: 288px;
+  background-image: url("../../assets/homepage/whiteproducttiletall.png");
+  background-size: 204px 288px;
+  padding: 16px 14px 12px;
+}
+
+.homeProductImageWrap {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible; /* 🔥 REQUIRED */
+}
+
+.homeProductImage {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.homeProductTextWrap {
+  position: relative;
+}
+
+.homeProductTitle {
+  font-family: "Tiny5", cursive;
+  font-size: 14px;
+  line-height: 1;
+  color: #4D1F1D;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  width: 190px;
+  min-height: 18px;
+}
+
+.homeProductMeta {
+  position: relative;
+  padding-right: 84px;
+}
+
+.homeProductPriceRow,
+.homeProductQtyRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "Micro 5", cursive;
+  font-size: 19px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #4D1F1D;
+}
+
+.homeProductQtyRow {
+  margin-top: 6px;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.homeMetaLabel {
+  color: #4D1F1D;
+  flex-shrink: 0;
+}
+
+.homeMetaCoin {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.homeMetaValue {
+  color: #e57d1f;
+  min-width: 24px;
+  display: inline-block;
+}
+
+.homeProductViewsBlock {
+  position: absolute;
+  right: 4px;
+  width: 74px;
+  height: 26px;
+  background-image: url("../../assets/ui_icons/productviewsblock.png");
+  background-size: 74px 26px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Micro 5", cursive;
+  font-size: 18px;
+  line-height: 1;
+  color: #4D1F1D;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.homeProductCard.isShort .homeProductViewsBlock {
+  margin-top: -27px;
+}
+
+.homeProductCard.isTall .homeProductViewsBlock {
+  margin-top: -13px;
+}
+
+.homeViewsBlockIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.homeViewsBlockValue {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+  padding-right: 9px;
+  padding-left: 30px;
+  color: #4D1F1D;
+}
+
+.homeProductCard.isTall .homeProductPriceRow {
+  margin-top: 2px;
+}
+
+.homeProductCard.isTall .homeProductQtyRow {
+  margin-top: 8px;
+}
+
+.homeProductCard.isShort .homeProductPriceRow {
+  margin-top: -2px;
+}
+
+.homeProductCard.isShort .homeProductQtyRow {
+  margin-top: 4px;
+}
+
+/* =========================
+   FESTIVAL & COUPON OVERLAYS
+========================= */
+
+.homeProductCard.isShort .productCouponTag {
+  position: absolute;
+  top: 192px;
+  right: 8px;
+  width: 56px;
+  height: auto;
+  z-index: 10;
+  image-rendering: pixelated;
+  pointer-events: none;
+  animation: couponFloat 2s ease-in-out infinite;
+}
+
+.homeProductCard.isTall .productCouponTag {
+  position: absolute;
+  top: 210px;
+  right: 8px;
+  width: 56px;
+  height: auto;
+  z-index: 10;
+  image-rendering: pixelated;
+  pointer-events: none;
+  animation: couponFloat 2s ease-in-out infinite;
+}
+
+@keyframes couponFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* =========================
+   DISCOUNTED PRICE TYPOGRAPHY
+========================= */
+
+.homeProductPrice.redPrice {
+  color: #C3585D;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: #a38b81;
+  font-size: 0.85em;
+  margin-right: 2px;
+}
+
+.homeDiscountArrow {
+  width: 18px !important;
+  height: 18px !important;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.homeProductCoin {
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;
+  image-rendering: pixelated;
+}
+
+.redText {
+  color: #C3585D;
+  font-weight: bold;
+}
+
+/* =========================
+   BOOST VIEWS BUTTON
+========================= */
+
+
+.homeBoostViewsBtn {
+  position: absolute;
+  left: 50%;
+  bottom: 12px; /* 🔥 was too low before */
+  transform: translateX(-50%);
+  width: 140px;
+  height: 35px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  z-index: 10;
+}
+
+
+.homeBoostViewsBtn img {
+  width: 140px;
+  height: 35px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.homeBoostViewsBtn.is-inactive {
+  opacity: 0.45;
+  filter: grayscale(0.8);
+  cursor: default;
+  pointer-events: none;
+}
+
+.homeBoostViewsBtn.is-active {
+  opacity: 1;
+  animation: boostPulse 0.8s ease-in-out infinite;
+}
+
+.homeBoostViewsBtn.is-active:active {
+  transform: translateX(-50%) translateY(2px) scale(0.96);
+}
+
+@keyframes boostPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+.homeBoostRewardFloat {
+  position: fixed;
+  z-index: 12000;
+  pointer-events: none;
+  font-family: "Micro 5", cursive;
+  font-size: 18px;
+  line-height: 1;
+  color: #4D1F1D;
+  text-transform: uppercase;
+  text-align: left;
+  animation: homeBoostRewardFloatUp 1.8s ease-out forwards;
+}
+
+.homeBoostRewardFloatRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.homeBoostRewardFloatIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+@keyframes homeBoostRewardFloatUp {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px) scale(0.92);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-26px) scale(1);
+  }
+}
+
+@media (max-width: 460px) {
+  #homeTopStatsBlock {
+    margin-top: 46px !important;
+  }
+}

@@ -1,0 +1,563 @@
+/* styles/pages/pricing.css */
+
+.pricingPage {
+  position: relative;
+  background-image: url("../../assets/backgrounds/setupbg.png");
+  background-size: 400px 752px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 46px;
+  padding: 28px 18px 18px 18px;
+  overflow: visible;
+}
+
+.pricingPage .topTitle {
+  text-align: center;
+  color: #4D1F1D;
+}
+
+.pricingMrBaoPanel {
+  width: 352px;
+  height: 80px;
+  margin: 12px auto 12px;
+  background-image: url("../../assets/setup/mrbao_pricing.png");
+  background-size: 352px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 0 0 auto;
+}
+
+.pricingStepsBar {
+  position: relative;
+  width: 352px;
+  height: 72px;
+  background-size: 352px 72px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex; /* Layout the three buttons horizontally */
+}
+
+/* Individual button clickable areas */
+.step-link {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  /* Match the pixel font spacing from your image */
+  gap: 1px; 
+}
+
+.step-link .step-num {
+  font-family: "Micro 5", sans-serif;
+  font-size: 15px; /* Slightly larger to match image */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-link .step-label {
+  font-family: "Tiny5", sans-serif;
+  font-size: 15px;
+  line-height: 0.8; /* Tight line height for pixel fonts */
+  text-align: center;
+  display: block;
+  max-width: 90px; /* Forces wrap exactly like the image */
+}
+
+/* Visual feedback for the current page */
+.pagePricing .step-link[data-step="pricing"] {
+  background: transparent; /* Slight highlight on active step */
+}
+
+/* Base text style (Inactive) */
+.step-link .step-num, .step-link .step-label {
+  color: #fff7ef; /* Brown */
+  transition: color 0.2s;
+}
+
+/* Active Step Text Styles (Black) */
+.pricingPage .step-link[data-step="pricing"] .step-num,
+.pricingPage .step-link[data-step="pricing"] .step-label {
+  color: #4D1F1D !important;
+}
+
+
+.pricingStepRow {
+  position: relative;
+  width: 416px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 30px 352px 30px;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2px;
+  margin: 0 auto 8px;
+  z-index: 5;
+}
+
+.pricingArrowBtn {
+  width: 30px;
+  height: 45px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricingArrowBtn img {
+  width: 30px;
+  height: 45px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pricingStepsBar {
+  width: 352px;
+  height: 72px;
+  background-image: url("../../assets/setup/steps_price_products.png");
+  background-size: 352px 72px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.pricingProductsLabel {
+  width: 368px;
+  margin: 0 auto 15px;
+  color: #fff7ef;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: left;
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+}
+
+.pricingPickerWrap {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.pricingPickerRow {
+  width: 100%;
+  max-width: 400px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* Matching the 24px vertical gap from the products page */
+  margin: 0 auto 10px; 
+}
+
+.pricingProductArrow {
+  width: 30px; /* Kept at 30x45 for primary navigation style */
+  height: 45px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricingProductArrow img {
+  width: 30px;
+  height: 45px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pricingThumbStrip {
+  width: auto; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.pricingThumb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricingThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pricingThumb.is-selected::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 96px;  /* Matching requested size */
+  height: 96px;
+  background-image: url("../../assets/setup/product_selected.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+.pricingMessage {
+  width: 368px;
+  margin: 0 auto 6px;
+  text-align: center;
+  color: #fff7ef;
+  min-height: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.pricingCardWrap {
+  width: 368px;
+  margin: 0 auto;
+}
+
+.pricingCard {
+  width: 368px;
+  height: 277px;
+  background-image: url("../../assets/setup/priceproductwhiteblock.png");
+  background-size: 368px 277px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding: 14px 18px 12px;
+  box-sizing: border-box;
+}
+
+.pricingCardTitle {
+  color: #4D1F1D;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: left;
+  margin-bottom: 18px; /* bigger gap before product image/name */
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+}
+
+.pricingCardNameTop {
+  display: none;
+}
+
+.pricingCardInner {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 14px;
+  align-items: start;
+  min-height: 170px;
+}
+
+.pricingMainCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.pricingMainArtWrap {
+  width: 160px;
+  height: 160px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricingMainArt {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pricingCardName {
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+  color: #4D1F1D;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+
+  width: 160px;        /* match product image width */
+  margin: 0 auto;     /* center under image */
+}
+
+.pricingControlWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+  padding-top: 32px; /* moves manufacturing + price content down */
+}
+
+
+.pricingManufacturingRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  color: #e57d1f;
+  line-height: 1;
+}
+
+.pricingManufacturingLabel {
+  color: #4D1F1D;
+  display: block;
+}
+
+.pricingPriceRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #e57d1f;
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.pricingLabel {
+  color: #4D1F1D;
+}
+
+/* Updated Stepper with Small 20x30 Arrows */
+.pricingStepperCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-left: 78px;
+  margin-top: -70px;
+}
+
+.pricingVerticalBtn {
+  width: 30px; /* Adjusted to fit the 20px width of the arrow image */
+  height: 20px; /* Adjusted for horizontal fit after rotation */
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricingVerticalBtn img {
+  width: 20px;
+  height: 30px;
+  transform: rotate(-90deg);
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pricingVerticalBtnDown img {
+  transform: rotate(90deg);
+}
+
+.pricingPriceBox {
+  width: 72px;
+  height: 32px;
+  background: #d7d7d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e57d1f;
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.pricingBottomButtonWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.pricingImageBtn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.pricingImageBtn img {
+  width: 220px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* =========================
+   BUTTON / ARROW PRESS EFFECTS
+========================= */
+
+.pricingArrowBtn,
+.pricingProductArrow,
+.pricingVerticalBtn,
+.pricingImageBtn,
+.step-link,
+.pricingThumb {
+  transition: transform 0.08s ease, filter 0.08s ease;
+  transform-origin: center;
+}
+
+.pricingArrowBtn:active,
+.pricingProductArrow:active,
+.pricingVerticalBtn:active,
+.pricingImageBtn:active,
+.step-link:active,
+.pricingThumb:active {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
+.pricingArrowBtn img,
+.pricingProductArrow img,
+.pricingVerticalBtn img,
+.pricingImageBtn img,
+.pricingThumb img {
+  pointer-events: none;
+}
+
+/* Media Query cleanup to match products page */
+@media (max-width: 460px) {
+  .pricingPage {
+    background-size: 400px 752px;
+    background-position: center 60px !important;
+    padding: 28px 18px 18px 18px !important;
+    overflow: hidden;
+  }
+
+  .pricingMrBaoPanel {
+    width: 352px;
+    height: 80px;
+    background-size: 352px 80px;
+    margin: 4px auto 10px !important;
+    transform: translateY(44px);
+  }
+
+  .pricingStepRow {
+    width: 416px;
+    left: 50%;
+    grid-template-columns: 30px 352px 30px;
+    column-gap: 2px;
+    justify-content: center;
+    transform: translateX(-50%) translateY(44px);
+  }
+
+  .pricingArrowBtn {
+    width: 30px;
+    height: 45px;
+  }
+
+  .pricingArrowBtn img {
+    width: 30px;
+    height: 45px;
+  }
+
+  .pricingStepsBar {
+    width: 352px;
+    height: 72px;
+    background-size: 352px 72px;
+  }
+
+  .pricingProductsLabel {
+    width: 368px;
+    transform: translateY(44px);
+  }
+
+  .pricingPickerWrap {
+    width: 400px;
+    transform: translateY(44px);
+  }
+
+  .pricingPickerRow {
+    width: 400px;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .pricingProductArrow {
+    width: 30px;
+    height: 45px;
+  }
+
+  .pricingProductArrow img {
+    width: 30px;
+    height: 45px;
+  }
+
+  .pricingMessage {
+    width: 368px;
+    transform: translateY(34px);
+  }
+
+  .pricingCardName {
+  width: 160px;
+  margin: 4px auto;
+  text-align: center;
+}
+
+.pricingMainCol {
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.pricingCardTitle {
+  margin-bottom: 24px;
+}
+
+.pricingCardInner {
+  align-items: start;
+}
+
+  .pricingCardWrap {
+    width: 368px;
+    transform: translateY(34px);
+  }
+
+  .pricingControlWrap {
+  padding-top: 32px;
+}
+
+  .pricingCard {
+    width: 368px;
+    height: 277px;
+    background-size: 368px 277px;
+  }
+
+  .pricingBottomButtonWrap {
+    transform: translateY(34px);
+  }
+}

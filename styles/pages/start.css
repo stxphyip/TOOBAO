@@ -1,0 +1,108 @@
+/* styles/pages/start.css */
+
+.startPage {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100dvh;
+  overflow: hidden;
+
+  background-image: url("../../assets/backgrounds/startpagebg.png");
+  background-size: 100% 100%; /* fills full screen height */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #ffbb87;
+}
+
+/* Main vertical layout */
+.startPageInner {
+  position: relative;
+  width: 420px;
+  height: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* Title image */
+.startTitleImg {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  width: 440px;
+  height: 300px;
+  transform: translateX(-50%);
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Room image */
+.startRoomImg {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  width: 480px;
+  height: auto;
+  transform: translateX(-50%);
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.startButtonsRow {
+  position: absolute;
+  left: 50%;
+  top: 710px !important;
+  transform: translateX(-50%);
+
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+
+  z-index: 5;
+}
+
+.startButton {
+  width: 260px !important;
+  height: auto;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+
+  display: block;
+  flex: 0 0 auto;
+
+  transition: transform 0.08s ease, filter 0.08s ease;
+  transform-origin: center;
+}
+
+.startButton img {
+  width: 260px !important;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  pointer-events: none;
+}
+
+.startGameButton {
+  margin-top: -35px;
+}
+
+.startButton:active {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}

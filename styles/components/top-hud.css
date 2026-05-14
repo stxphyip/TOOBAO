@@ -1,0 +1,245 @@
+/* =========================================
+   TOP HUD — FINAL ALIGNMENT FIX
+========================================= */
+
+.homeTopStatsCard, .marketingTopStatsCard, .ordersTopStatsCard, .chatTopStatsCard, .storageTopStatsCard {
+  position: relative !important;
+  width: 400px !important;
+  height: 180px !important;
+  margin: 0 auto 4px !important;
+  background-image: url("../../assets/top_hud/topstatsblock.png") !important;
+  background-size: 400px 180px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  overflow: hidden !important;
+}
+
+/* ---------- avatar (Fixed Left) ---------- */
+.homeAvatarBtn, .marketingAvatarBtn, .ordersAvatarBtn, .chatAvatarBtn, .storageAvatarBtn {
+  position: absolute !important;
+  left: 10px !important;
+  top: 10px !important;
+  width: 80px !important;
+  height: 80px !important;
+  z-index: 10 !important;
+}
+
+/* ---------- store name & stars (Middle) ---------- */
+.homeStoreMain,
+.marketingStoreMain,
+.ordersStoreMain,
+.chatStoreMain,
+.storageStoreMain {
+  position: absolute !important;
+  left: 100px !important;
+  top: 15px !important;
+  width: 170px !important;
+  z-index: 10 !important;
+}
+
+.homeStoreNameLarge,
+.marketingStoreNameLarge,
+.ordersStoreNameLarge,
+.chatStoreNameLarge,
+.storageStoreNameLarge {
+  display: block !important;
+  width: 170px !important;
+  max-width: 170px !important;
+  margin: 0 !important;
+  font-family: "Tiny5", cursive !important;
+  font-size: 20px !important;
+  line-height: 0.95 !important;
+  color: #fff7ef !important;
+  text-transform: uppercase !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+.homeAvatarLarge,
+.marketingAvatarLarge,
+.ordersAvatarLarge,
+.chatAvatarLarge,
+.storageAvatarLarge {
+  width: 80px;
+  height: 80px;
+}
+
+.homeStarsImg,
+.marketingStarsImg,
+.ordersStarsImg,
+.chatStarsImg,
+.storageStarsImg {
+  position: absolute !important;
+  left: -10px !important;
+  top: 40px !important;
+  width: 170px !important;
+  height: 45px !important;
+  display: block !important;
+  object-fit: contain !important;
+  image-rendering: pixelated !important;
+  z-index: 10 !important;
+}
+
+.homeStoreNameLarge:has(br),
+.marketingStoreNameLarge:has(br),
+.ordersStoreNameLarge:has(br),
+.chatStoreNameLarge:has(br),
+.storageStoreNameLarge:has(br) {
+  line-height: 0.9 !important;
+}
+
+/* ---------- right side pills (Day/Time) ---------- */
+.homeRightStatsCol, .marketingRightStatsCol, .ordersRightStatsCol, .chatRightStatsCol, .storageRightStatsCol {
+  position: absolute !important;
+  right: 10px !important;
+  top: 10px !important;
+  width: 100px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  z-index: 10 !important;
+}
+
+.homeDayStat, .homeTimeStat,
+.marketingDayStat, .marketingTimeStat,
+.ordersDayStat, .ordersTimeStat,
+.chatDayStat, .chatTimeStat,
+.storageDayStat, .storageTimeStat {
+  position: relative !important;
+  width: 100px !important;
+  height: 40px !important;
+  background-image: url("../../assets/top_hud/timepill.png") !important;
+  background-size: 100px 40px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+/* ---------- bottom 4 stat blocks ---------- */
+.homeOrangeStatsRow, .marketingOrangeStatsRow, .ordersOrangeStatsRow, .chatOrangeStatsRow, .storageOrangeStatsRow {
+  position: absolute !important;
+  left: -90px !important;
+  top: 84px !important;
+  width: 380px !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 98px) !important;
+  column-gap: 0 !important;
+  z-index: 10 !important;
+}
+
+/* day/time icons */
+.homeDayStat .homeStatIcon,
+.homeTimeStat .homeStatIcon,
+.marketingDayStat .marketingStatIcon,
+.marketingTimeStat .marketingStatIcon,
+.ordersDayStat .ordersStatIcon,
+.ordersTimeStat .ordersStatIcon,
+.chatDayStat .chatStatIcon,
+.chatTimeStat .chatStatIcon,
+.storageDayStat .storageStatIcon,
+.storageTimeStat .storageStatIcon {
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 30px !important;
+  height: 30px !important;
+  object-fit: contain !important;
+  image-rendering: pixelated !important;
+  image-rendering: crisp-edges !important;
+}
+
+.homeFollowersStat, .homeViewsStat, .homeBoxesStat, .homeMoneyStat,
+.marketingFollowersStat, .marketingViewsStat, .marketingBoxesStat, .marketingMoneyStat,
+.ordersFollowersStat, .ordersViewsStat, .ordersBoxesStat, .ordersMoneyStat,
+.chatFollowersStat, .chatViewsStat, .chatBoxesStat, .chatMoneyStat,
+.storageFollowersStat, .storageViewsStat, .storageBoxesStat, .storageMoneyStat {
+  position: relative !important;
+  width: 88px !important;
+  height: 72px !important;
+  background-image: url("../../assets/top_hud/statblock.png") !important;
+  background-size: 88px 72px !important;
+  background-repeat: no-repeat !important;
+}
+
+.homeOrangeStatsRow .homeStatIcon, 
+.marketingOrangeStatsRow .marketingStatIcon, 
+.ordersOrangeStatsRow .ordersStatIcon, 
+.chatOrangeStatsRow .chatStatIcon, 
+.storageOrangeStatsRow .storageStatIcon {
+  position: absolute !important;
+  left: 50% !important;
+  top: 6px !important;
+  transform: translateX(-50%) !important;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.homeDayStat .homeStatValue,
+.homeTimeStat .homeStatValue,
+.marketingDayStat .marketingStatValue,
+.marketingTimeStat .marketingStatValue,
+.ordersDayStat .ordersStatValue,
+.ordersTimeStat .ordersStatValue,
+.chatDayStat .chatStatValue,
+.chatTimeStat .chatStatValue,
+.storageDayStat .storageStatValue,
+.storageTimeStat .storageStatValue {
+  position: absolute !important;
+  left: 38px !important;
+  right: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: right !important;
+  font-family: "Micro 5", cursive !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  color: #4D1F1D !important;
+}
+
+.homeOrangeStatsRow .homeStatValue, 
+.marketingOrangeStatsRow .marketingStatValue, 
+.ordersOrangeStatsRow .ordersStatValue, 
+.chatOrangeStatsRow .chatStatValue, 
+.storageOrangeStatsRow .storageStatValue {
+  position: absolute !important;
+  left: 0px !important;
+  right: 0 !important;
+  top: 34px !important;
+  text-align: center !important;
+  font-size: 20px !important;
+  color: #E9742C !important;
+}
+
+.homeFollowersStat::after, .marketingFollowersStat::after, .ordersFollowersStat::after, .chatFollowersStat::after, .storageFollowersStat::after { content: "FOLLOWERS"; }
+.homeViewsStat::after, .marketingViewsStat::after, .ordersViewsStat::after, .chatViewsStat::after, .storageViewsStat::after { content: "VIEWS"; }
+.homeBoxesStat::after, .marketingBoxesStat::after, .ordersBoxesStat::after, .chatBoxesStat::after, .storageBoxesStat::after { content: "BOXES"; }
+.homeMoneyStat::after, .marketingMoneyStat::after, .ordersMoneyStat::after, .chatMoneyStat::after, .storageMoneyStat::after { content: "COINS"; }
+
+.homeFollowersStat::after, .homeViewsStat::after, .homeBoxesStat::after, .homeMoneyStat::after,
+.marketingFollowersStat::after, .marketingViewsStat::after, .marketingBoxesStat::after, .marketingMoneyStat::after,
+.ordersFollowersStat::after, .ordersViewsStat::after, .ordersBoxesStat::after, .ordersMoneyStat::after,
+.chatFollowersStat::after, .chatViewsStat::after, .chatBoxesStat::after, .chatMoneyStat::after,
+.storageFollowersStat::after, .storageViewsStat::after, .storageBoxesStat::after, .storageMoneyStat::after {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 4px !important;
+  text-align: center !important;
+  font-family: "Micro 5", cursive !important;
+  font-size: 15px !important;
+  color: #4D1F1D !important;
+  text-transform: uppercase !important;
+}
+
+/* ---------- feed/page width matching ---------- */
+.homeFeedWrap, .homeTopArea, .homeBestsellerSection, .homeProductsSection, .homeProductsGrid, .homeSectionTitle, #homeTopStatsBlock, #homeHelperBar {
+  width: 400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

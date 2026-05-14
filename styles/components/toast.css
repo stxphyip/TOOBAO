@@ -1,0 +1,180 @@
+/* ============================= */
+/* Algorithm Toast (Pixel UI)    */
+/* ============================= */
+
+.iosToast {
+  position: fixed;
+  top: 10px; /* Matches the top margin of your HUD */
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+
+  /* Precise dimensions to match HUD width */
+  width: 400px; 
+  height: 100px;
+
+  /* Background Asset - Forced to fill 440x80 exactly */
+  background: url("../../assets/toast/mrbaotoast.png") no-repeat center;
+  background-size: 100% 100%; 
+
+  display: flex;
+  align-items: center;
+  padding: 0 30px; /* Adjusted to prevent text overlap with the frame edges */
+  box-sizing: border-box;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10000;
+
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.iosToast.hidden {
+  display: none;
+}
+
+.iosToast.toast-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* Close button - 30x30px */
+.iosToast #closeAlgoToastBtn {
+  position: absolute;
+  top: 12px; 
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  background: url("../../assets/toast/xbutton.png") no-repeat center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  color: transparent;
+  font-size: 0;
+  z-index: 10;
+}
+
+/* Avatar Styling */
+.iosToastAvatar {
+  width: 80px;
+  height: 80px;
+  image-rendering: pixelated;
+  flex: 0 0 auto;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.iosToastContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* Heading: Tiny5 15pt */
+.iosToastName {
+  font-family: "Tiny5", sans-serif;
+  font-size: 15pt !important;
+  line-height: 1;
+  color: #4D1F1D;
+  margin-bottom: 2px;
+  /* Add these to lock the space */
+  display: block;
+  height: 18px; 
+  flex-shrink: 0;
+}
+
+.iosToastText {
+  font-family: "Micro 5", sans-serif;
+  font-size: 15pt;
+  line-height: 0.85;
+  color: #E9742C;
+  text-transform: uppercase;
+  display: block;
+  word-wrap: break-word;
+}
+
+/* Small (nav icons) */
+.toastInlineIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  image-rendering: pixelated;
+}
+
+/* Medium (up/down star) */
+.toastInlineIconMedium {
+  width: 30px;
+  height: 22px;
+  margin-right: 4px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  image-rendering: pixelated;
+}
+
+/* Large (5 star banner) */
+.toastInlineIconLarge {
+  width: 70px;
+  height: 35px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -4px; /* bigger lift since it's taller */
+  image-rendering: pixelated;
+}
+
+.toastInlineIconEnd {
+  margin-left: 4px;
+  position: relative;
+  top: -1px;
+}
+
+.toastRewardIconWrap {
+  display: inline-block;
+  width: 14px !important;
+  height: 14px !important;
+  margin-left: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.toastRewardIconWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.toastInlineIconEnd {
+  width: 20px !important;
+  height: 20px !important;
+  margin-left: 0px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  image-rendering: pixelated;
+}
+
+/* =========================
+   TOAST X BUTTON PRESS EFFECT
+========================= */
+
+.iosToast #closeAlgoToastBtn {
+  transform-origin: center;
+  transition: transform 0.08s ease, filter 0.08s ease;
+}
+
+.iosToast #closeAlgoToastBtn:active,
+.iosToast #closeAlgoToastBtn.is-pressed {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}

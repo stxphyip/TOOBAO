@@ -1,0 +1,391 @@
+/* Disable double-tap zoom and fix mobile scrolling */
+:root {
+  --app-height: 100vh;
+}
+
+html,
+body {
+  width: 100%;
+  height: var(--app-height);
+  min-height: var(--app-height);
+  max-height: var(--app-height);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  background: var(--taobao-orange);
+
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+
+  /*
+    Important:
+    Prevents double/triple tap browser gestures from shifting viewport/hitboxes.
+    Scroll is re-enabled only inside .pageMain.
+  */
+  touch-action: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  image-rendering: pixelated;
+}
+
+.hidden {
+  display: none !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--taobao-orange);
+}
+
+/* =========================
+   MAIN APP SHELL
+========================= */
+
+.app {
+  width: 460px;
+  max-width: 460px;
+
+  height: var(--app-height);
+  min-height: var(--app-height);
+  max-height: var(--app-height);
+
+  display: flex;
+  flex-direction: column;
+  background: #ffbb87;
+  overflow: hidden;
+  position: relative;
+
+  touch-action: none;
+}
+
+/* =========================
+   MANAGER WINDOW MODE
+========================= */
+
+body.managerWindowBody {
+  display: block;
+  padding: 0;
+  background: #FFBB87;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  touch-action: auto;
+}
+
+.managerApp {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  background: #FFBB87;
+  overflow: hidden;
+  position: relative;
+}
+
+/* =========================
+   PAGES
+========================= */
+
+.page {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  position: relative;
+  touch-action: none;
+}
+
+.page.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.pageMain {
+  flex: 1;
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 0 0 96px;
+  -webkit-overflow-scrolling: touch;
+
+  /*
+    Only page content can scroll vertically.
+    This keeps body/app stable.
+  */
+  touch-action: pan-y;
+}
+
+.topRow {
+  padding: 10px 12px 6px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 460px) {
+  html,
+  body {
+    width: 100vw;
+
+    height: var(--app-height);
+    min-height: var(--app-height);
+    max-height: var(--app-height);
+
+    overflow: hidden;
+    display: block;
+    background: var(--taobao-orange);
+    touch-action: none;
+  }
+
+  body {
+    /*
+      Do NOT use position: fixed here.
+      Fixed body + viewport changes can cause tap hitboxes to drift.
+    */
+    position: relative;
+  }
+
+  .app {
+    width: 100vw;
+    max-width: 460px;
+
+    height: var(--app-height);
+    min-height: var(--app-height);
+    max-height: var(--app-height);
+
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    background: var(--taobao-orange);
+    touch-action: none;
+  }
+
+  .page {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .page.show {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pageMain {
+    flex: 1;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-bottom: 96px;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+}
+
+/* =========================
+   MOBILE HOLD BUTTON FIX
+   prevents iPhone long-press selection/callout
+========================= */
+
+button,
+button *,
+.imageButton,
+.imageButton *,
+.stepBtn,
+.stepBtn *,
+.inventoryStepBtn,
+.inventoryStepBtn *,
+.productPickerArrow,
+.productPickerArrow *,
+.pricingProductArrow,
+.pricingProductArrow *,
+.pricingVerticalBtn,
+.pricingVerticalBtn *,
+.storageMiniArrowBtn,
+.storageMiniArrowBtn *,
+.storageMainArrow,
+.storageMainArrow *,
+.storageGridArrow,
+.storageGridArrow * {
+  -webkit-user-select: none;
+  user-select: none;
+
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+
+  /*
+    Stronger than manipulation.
+    This prevents aggressive double/triple taps from triggering mobile gestures.
+  */
+  touch-action: none;
+}
+
+button img,
+.imageButton img,
+.stepBtn img,
+.inventoryStepBtn img,
+.productPickerArrow img,
+.pricingProductArrow img,
+.pricingVerticalBtn img,
+.storageMiniArrowBtn img,
+.storageMainArrow img,
+.storageGridArrow img {
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+}
+
+/* =========================
+   PREVENT VALUE TEXT SELECTION ON HOLD
+========================= */
+
+.inventoryQtyRow,
+.inventoryQtyRow *,
+.inventoryQtyBox,
+.pricingStepperCol,
+.pricingStepperCol *,
+.pricingPriceBox,
+.storagePriceStepper,
+.storagePriceStepper *,
+.storageQtyRow,
+.storageQtyRow *,
+.storageGrayValueBox,
+.storageQtyValueBox,
+.stepper,
+.stepper *,
+.stepNum,
+.productsBalanceText,
+.productsBalanceText *,
+.pricingPriceRow,
+.pricingPriceRow *,
+.storagePriceRow,
+.storagePriceRow * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-drag: none !important;
+  touch-action: none !important;
+}
+
+.inventoryStepBtn,
+.pricingVerticalBtn,
+.storageMiniArrowBtn,
+.storageMainArrow,
+.storageGridArrow,
+.stepBtn {
+  touch-action: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+/* =========================
+   BUTTON STABILITY
+========================= */
+
+button {
+  position: relative;
+  touch-action: none;
+}
+
+/* =========================
+   DAY OVERLAY HARD LOCK
+   Prevents bottom nav / hidden page from receiving taps
+========================= */
+
+body.dayOverlayOpen {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+body.dayOverlayOpen #bottomNav,
+body.dayOverlayOpen .bottomNav {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+body.dayOverlayOpen .app {
+  height: var(--app-height) !important;
+  min-height: var(--app-height) !important;
+  max-height: var(--app-height) !important;
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+#dayOverlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: var(--app-height) !important;
+  z-index: 30000 !important;
+  pointer-events: auto !important;
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+#dayOverlay.hidden {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+#dayOverlay .overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  pointer-events: auto !important;
+  touch-action: none !important;
+}
+
+#dayOverlay .dayOverlayBody {
+  position: relative !important;
+  z-index: 30001 !important;
+  pointer-events: auto !important;
+  touch-action: none !important;
+}
+
+#dayOverlay button {
+  pointer-events: auto !important;
+  touch-action: none !important;
+  position: relative;
+  z-index: 30002;
+}
+
+#dayOverlay button * {
+  pointer-events: none !important;
+}

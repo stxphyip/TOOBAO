@@ -1,0 +1,794 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Taobao Seller Game</title>
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Micro+5&family=Tiny5&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/app.css" />
+</head>
+
+<body>
+  <div id="appRoot" class="app">
+
+    <div id="algoToast" class="iosToast hidden">
+  <button id="closeAlgoToastBtn" type="button" aria-label="Close notification">✕</button>
+
+  <img
+    id="algoToastAvatar"
+    class="iosToastAvatar"
+    src="assets/toast/mrbaoavatar.png"
+    alt="Character"
+  >
+
+  <div class="iosToastContent">
+    <div id="algoToastName" class="iosToastName">MR. BAO</div>
+    <div id="algoToastText" class="iosToastText"></div>
+  </div>
+</div>
+
+    <div id="helpCardOverlay" class="helpCardOverlay hidden"></div>
+
+    <header id="hud" class="hud hidden">
+      <div class="hudProfile">
+        <button id="hudAvatarBtn" class="hudAvatarBtn" type="button" style="cursor: pointer; background: none; border: none; padding: 0; position: relative; z-index: 50;">
+<img id="hudAvatarImg" src="assets/avatars/flowerpfp.png" alt="Profile">        </button>       
+        
+        <div class="hudProfileText">
+          <div id="hudStoreName" class="hudStoreName">Store</div>
+          <div class="hudMeta">
+            <span id="hudRating">★☆☆☆☆</span>
+            <span>•</span>
+            <span id="hudFollowers">0 followers</span>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="hudStats">
+        <div class="hudChip">Day <span id="hudDay">1</span></div>
+        <div class="hudChip">⏱ <span id="hudTimeLeft">03:00</span></div>
+        <div class="hudChip">$<span id="hudRevenue">0</span></div>
+
+        <button id="shippingBtn" class="hudChip hudChipBtn" type="button" aria-label="Shipping boxes">
+          📦 <span id="shippingMat">0</span>
+        </button>
+
+        <div class="hudChip">👀 <span id="hudViews">0</span></div>
+      </div>
+    </header>
+
+    <section id="pageStart" class="page show startPage">
+  <div class="startPageInner">
+    <img
+      class="startTitleImg"
+      src="assets/backgrounds/title.png"
+      alt="Toobao"
+    >
+
+    <img
+      class="startRoomImg"
+      src="assets/backgrounds/room.png"
+      alt="Seller room"
+    >
+
+    <div class="startButtonsRow">
+      <button id="managerBtn" class="startButton managerButton" type="button">
+        <img src="assets/ui_buttons/storemanagerbutton.png" alt="Store Manager">
+      </button>
+
+      <button id="startBtn" class="startButton startGameButton" type="button">
+        <img src="assets/ui_buttons/startgamebutton.png" alt="Start Game">
+      </button>
+    </div>
+  </div>
+</section>
+
+    <section id="pageManager" class="page managerPage">
+  <div class="managerShell">
+
+    <aside class="managerSidebar">
+      <img id="managerSidebarIcon" class="managerSidebarIcon" src="assets/manager/manager_icon.png" alt="Store Manager">
+      <div class="managerSidebarLabel">STORE MANAGER</div>
+
+      <div class="managerProfileBlock">
+        <div class="managerProfileAvatarWrap">
+          <img id="managerProfileAvatar" class="managerProfileAvatar" src="assets/avatars/frog.png" alt="Profile Avatar">
+        </div>
+        <div id="managerProfileStoreName" class="managerProfileStoreName">[STORE NAME]</div>
+        <div id="managerProfileSellerId" class="managerProfileMetaLine">SELLER ID: [ID]</div>
+        <div id="managerProfileRegion" class="managerProfileMetaLine">REGION: [REGION]</div>
+        <div id="managerProfileStoreType" class="managerProfileMetaLine">STORE TYPE: [TYPE]</div>
+      </div>
+
+      <button id="managerBackBtn" class="managerBackBtn" type="button">
+        <img src="assets/manager/backbutton.png" alt="Back">
+      </button>
+    </aside>
+
+    <main class="managerBoard">
+
+      <div class="managerTopRow">
+        <div class="managerWelcomeArea">
+          <div class="managerWelcome">
+            WELCOME, <span id="managerWelcomeName">[STORE NAME]</span>!
+          </div>
+
+          <div class="managerDayTimeRow">
+            <div class="managerDayRow">
+              <img class="managerDayTimeIcon" src="assets/manager/day1_icon.png" alt="" id="managerDayIcon">
+              <span class="managerDayText" id="managerDayText">DAY 1</span>
+            </div>
+            <div class="managerTimeRow">
+              <img class="managerDayTimeIcon" src="assets/manager/timeicon.png" alt="">
+              <span class="managerTimeText" id="managerTimeText">00:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="managerHealthBlock">
+          <img class="managerHealthBg" src="assets/manager/healthscoreblock.png" alt="">
+          <div class="managerHealthInner">
+            <div class="managerHealthTextCol">
+              <div class="managerHealthLabel">TOOBAO SELLER HEALTH SCORE</div>
+              <div id="managerHealthStatus" class="managerHealthStatus">POOR</div>
+              <div class="managerHealthSubLabel">PROGRESS SCORE</div>
+              <div id="managerHealthMessage" class="managerHealthMessage">
+                MR.BAO ISN'T HAPPY WITH YOUR WORK, WORK HARDER TO UP YOUR SCORE.
+              </div>
+            </div>
+
+            <div class="managerHealthSpinnerWrap">
+              <img id="managerHealthSpinner" class="managerHealthSpinner" src="assets/manager/healthscorespinner.png" alt="Health Score Spinner">
+              <img id="managerHealthNeedle" class="managerHealthNeedle" src="assets/manager/healthscorespinnerneedle.png" alt="Spinner Needle">
+              <img id="managerHealthAvatar" class="managerHealthAvatar" src="assets/manager/mrbaoavatar.png" alt="Mr Bao">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="managerStatsGrid">
+        <div class="managerBlock managerStarsBlock">
+          <img class="managerBlockBg" src="assets/manager/starsblock.png" alt="">
+          <div class="managerBlockInner managerStarsInner">
+            <img id="managerStarsImg" class="managerStarsImg" src="assets/ui_icons/1star.png" alt="Stars">
+            <div class="managerBlockLabel">(CURRENT STORE LEVEL)</div>
+          </div>
+        </div>
+
+        <div class="managerBlock managerFollowersBlock">
+  <img class="managerBlockBg" src="assets/manager/followersblock.png" alt="">
+  <div class="managerBlockInner managerFollowersInner">
+    <div class="managerFollowerStatRow">
+      <img class="managerFollowersIcon" src="assets/manager/followericon.png" alt="">
+      <div id="managerFollowers" class="managerBlockNumber managerBlockNumberLight">0</div>
+    </div>
+    <div class="managerBlockLabel managerBlockLabelLight">(CURRENT FOLLOWER COUNT)</div>
+  </div>
+</div>
+
+        <div class="managerBlock managerAwaitingBlock">
+          <img class="managerBlockBg" src="assets/manager/awaitingordersblock.png" alt="">
+          <div class="managerBlockInner managerAwaitingInner">
+            <img class="managerAwaitingIcon" src="assets/manager/smallshippingboxicon.png" alt="">
+            <div id="managerAwaitingShipment" class="managerBlockNumber">0</div>
+            <div class="managerBlockLabel">(ORDERS AWAITING SHIPMENT)</div>
+          </div>
+        </div>
+
+        <div class="managerBlock managerBalanceBlock">
+          <img class="managerBlockBg" src="assets/manager/balanceblock.png" alt="">
+          <div class="managerBlockInner managerBalanceInner">
+            <img class="managerCoinIcon" src="assets/manager/coin.png" alt="">
+            <div class="managerBalanceTextCol">
+              <div class="managerBalanceLabel">BALANCE REMAINING:</div>
+              <div id="managerRevenue" class="managerBigNumber managerBigNumberLight">0</div>
+              <div class="managerBalanceLabel managerBalanceLabelLower">TOTAL BALANCE SPENT:</div>
+              <div id="managerManufacturingCost" class="managerBigNumber managerBigNumberLight">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="managerBlock managerSpeedBlock">
+          <img class="managerBlockBg" src="assets/manager/deliveryblock.png" alt="">
+          <div class="managerBlockInner managerSpeedInner">
+            <div class="managerSpeedRow">
+              <img class="managerSpeedIcon" src="assets/manager/deliveryspeed_icon.png" alt="">
+              <div class="managerSpeedLabel">DELIVERY SPEED:</div>
+              <div id="managerDeliverySpeed" class="managerSpeedValue">0</div>
+              <div class="managerSpeedUnit">seconds</div>
+            </div>
+            <div class="managerSpeedRow">
+              <img class="managerSpeedIcon" src="assets/manager/chatspeed_icon.png" alt="">
+              <div class="managerSpeedLabel">CHAT SPEED:</div>
+              <div id="managerChatSpeed" class="managerSpeedValue">0</div>
+              <div class="managerSpeedUnit">seconds</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="managerBlock managerOrdersBlock">
+          <img class="managerBlockBg" src="assets/manager/ordersblock.png" alt="">
+          <div class="managerBlockInner managerOrdersInner">
+            <img class="managerOrdersIcon" src="assets/manager/largeshippingboxicon.png" alt="">
+            <div class="managerOrdersTextCol">
+              <div class="managerOrdersLabel"># OF ORDERS TODAY:</div>
+              <div id="managerOrdersToday" class="managerBigNumber managerBigNumberLight">0</div>
+              <div class="managerOrdersLabel managerOrdersLabelLower">TOTAL ORDER COUNT:</div>
+              <div id="managerTotalOrders" class="managerBigNumber managerBigNumberLight">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="managerBottomRow">
+        <div class="managerBlock managerViewsBlock">
+          <img class="managerBlockBg" src="assets/manager/changeinviewsblock.png" alt="">
+          <div class="managerBlockInner managerViewsInner">
+            <div class="managerViewsChartCol">
+              <div class="managerSectionTitle">CHANGE IN VIEWS</div>
+              <div id="managerChartSvg" class="managerChartSvg"></div>
+            </div>
+            <div class="managerViewsInfoCol">
+              <img class="managerViewsIcon" src="assets/manager/viewcounticon.png" alt="">
+              <div class="managerViewsInfoLabel">TODAY'S VIEW COUNT:</div>
+              <div id="managerViewsToday" class="managerBigNumber managerBigNumberLight">0</div>
+              <div class="managerViewsInfoLabel managerViewsInfoLabelLower">TOTAL VIEW COUNT:</div>
+              <div id="managerTotalViews" class="managerBigNumber managerBigNumberLight">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="managerBlock managerBestsellerBlock">
+          <img class="managerBlockBg" src="assets/manager/topsellerblock.png" alt="">
+          <div class="managerBlockInner managerBestsellerInner">
+            <div class="managerSectionTitle managerSectionTitleDark">TOP BESTSELLERS</div>
+            <div id="managerBestProducts" class="managerBestProducts"></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="managerWarningPopup" class="managerWarningPopup hidden">
+    <div class="managerWarningModal">
+      <img class="managerWarningModalBg" src="assets/popup/warningmodal.png" alt="Warning">
+      <button id="managerWarningCloseBtn" class="managerWarningCloseBtn" type="button" aria-label="Close">
+        <img src="assets/popup/xbuttonwhite.png" alt="Close">
+      </button>
+      <div class="managerWarningModalInner">
+        <div class="managerWarningTitle">CAUTION!</div>
+        <img id="managerWarningIconImg" class="managerWarningIconImg" src="assets/popup/cautionsign.png" alt="">
+        <div id="managerWarningText" class="managerWarningText">LOW IN BALANCE</div>
+      </div>
+    </div>
+  </div>
+  <audio id="managerCautionAudio" src="assets/sounds/caution.mp3" loop preload="auto"></audio>
+</section>
+
+<section id="pageTutorial" class="page tutorialPage">
+  <div class="tutorialHeader">
+    <img class="tutorialHeaderBg" src="assets/tutorial/topbaoblock.png" alt="">
+  </div>
+
+  <div class="tutorialBody">
+    <!-- HOW TO PLAY -->
+    <section class="tutorialPanel">
+      <img class="tutorialPanelBg" src="assets/tutorial/tutorialblock.png" alt="">
+      <div class="tutorialPanelTitle">HOW TO PLAY</div>
+
+      <div class="tutorialPlayList">
+        <div class="tutorialPlayRow">
+          <img src="assets/tutorial/storeview_icon.png" alt="">
+          <span>GROW YOUR STORE VIEWS!</span>
+        </div>
+
+        <div class="tutorialPlayRow">
+          <img src="assets/tutorial/followers_icon.png" alt="">
+          <span>MORE VIEWS = MORE FOLLOWERS!</span>
+        </div>
+
+        <div class="tutorialPlayRow">
+          <img src="assets/tutorial/star_icon.png" alt="">
+          <span>EVERY 500 FOLLOWERS EARNS 1 STAR!</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="tutorialCaption">
+      <img class="tutorialCaptionBg" src="assets/tutorial/captionblock.png" alt="">
+      <div class="tutorialCaptionText">
+  SET UP YOUR STORE, SELL PRODUCTS, LIVESTREAM, PACK ORDERS AND ANSWER CUSTOMER CHATS
+</div>
+    </div>
+
+    <!-- HOW TO WIN -->
+    <section class="tutorialPanel">
+      <img class="tutorialPanelBg" src="assets/tutorial/tutorialblock.png" alt="">
+      <div class="tutorialPanelTitle">HOW TO WIN</div>
+
+      <div class="tutorialWinContent">
+        <img class="tutorialBaoWin" src="assets/tutorial/winmrbao.png" alt="Win Mr Bao">
+
+        <div class="tutorialWinRules">
+          <div class="tutorialIconTextRow">
+            <img class="tutorialDaysRow" src="assets/tutorial/days_row.png" alt="">
+            <span>SURVIVE 3 DAYS!</span>
+          </div>
+
+          <div class="tutorialIconTextRow">
+            <img class="tutorialHourglassImg" src="assets/ui_icons/time_icon.png" alt="">
+            <span>EACH DAY LASTS 3 MINUTES!</span>
+          </div>
+
+          <div class="tutorialIconTextRow">
+            <img class="tutorialStarsRowSmall" src="assets/toast/5starscondensed.png" alt="">
+            <span>GET 5 STARS!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tutorialCaption">
+      <img class="tutorialCaptionBg" src="assets/tutorial/captionblock.png" alt="">
+      <div class="tutorialCaptionText">
+  FINISH DAY 3 WITH 5 STARS AND YOUR STORE STAYS ON THE PLATFORM. FAIL AND YOU WILL BE REMOVED.
+</div>
+    </div>
+
+    <!-- HOW TO LOSE -->
+    <section class="tutorialPanel tutorialLosePanel">
+      <img class="tutorialPanelBg" src="assets/tutorial/tutorialblock.png" alt="">
+      <div class="tutorialPanelTitle">HOW TO LOSE</div>
+
+      <div class="tutorialLoseContent">
+        <img class="tutorialBaoLose" src="assets/tutorial/losemrbao.png" alt="Lose Mr Bao">
+
+        <div class="tutorialLoseRules">
+          <div class="tutorialLoseTopRow">
+            <img class="tutorialCoinWarn" src="assets/tutorial/insufficientfundicon.png" alt="">
+            <span>RUN OUT OF COINS</span>
+          </div>
+
+          <div class="tutorialOrRow">
+            <img src="assets/tutorial/ordividerleft.png" alt="">
+            <span>OR</span>
+            <img src="assets/tutorial/ordividerright.png" alt="">
+          </div>
+
+          <div class="tutorialLoseBottomRow">
+            <img class="tutorialOneStar" src="assets/toast/downstar.png" alt="">
+            <span>END DAY 3 WITH LESS THAN 5 STARS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="tutNavButtons">
+    <button id="tutorialBackBtn" class="tutBtn" type="button" aria-label="Go Back">
+      <img src="assets/tutorial/backbutton.png" alt="Back">
+    </button>
+
+    <button id="tutorialNextBtn" class="tutBtn" type="button" aria-label="Next Page">
+      <img src="assets/tutorial/nextbutton.png" alt="Next">
+    </button>
+  </div>
+</section>
+    
+    <section id="pageSetup" class="page setupPage">
+      <div class="topRow">
+        <div class="topSpacer"></div>
+      </div>
+
+      <div class="setupMrBaoPanel"></div>
+
+      <div class="setupStepRow">
+  <button id="setupPrevBtn" class="setupArrowBtn" type="button">
+    <img src="assets/setup/arrow_left.png" draggable="false">
+  </button>
+  
+  <div class="setupStepsBar">
+    <button class="step-link" data-step="setup">
+      <span class="step-num">STEP 1:</span>
+      <span class="step-label">SELECT A PROFILE</span>
+    </button>
+    <button class="step-link" data-step="products">
+      <span class="step-num">STEP 2:</span>
+      <span class="step-label">BUY YOUR INVENTORY</span>
+    </button>
+    <button class="step-link" data-step="pricing">
+      <span class="step-num">STEP 3:</span>
+      <span class="step-label">PRICE YOUR PRODUCTS</span>
+    </button>
+  </div>
+
+  <button id="setupNextBtn" class="setupArrowBtn" type="button">
+    <img src="assets/setup/arrow_right.png" draggable="false">
+  </button>
+</div>
+
+      <p id="setupMessage" class="message"></p>
+
+      <div id="presetProfiles" class="presetGrid"></div>
+    </section>
+
+    <section id="pageProducts" class="page productsPage">
+      <div class="topRow">
+        <div class="topSpacer"></div>
+      </div>
+
+      <div class="productsMrBaoPanel"></div>
+
+      <div class="productsStepRow">
+  <button id="productsPrevBtn" class="productsArrowBtn" type="button"><img src="assets/setup/arrow_left.png" draggable="false"></button>
+  <div class="productsStepsBar">
+    <button class="step-link" data-step="setup">
+    <span class="step-num">STEP 1:</span>
+    <span class="step-label">SELECT A PROFILE</span>
+  </button>
+  <button class="step-link" data-step="products">
+    <span class="step-num">STEP 2:</span>
+    <span class="step-label">BUY YOUR INVENTORY</span>
+  </button>
+  <button class="step-link" data-step="pricing">
+    <span class="step-num">STEP 3:</span>
+    <span class="step-label">PRICE YOUR PRODUCTS</span>
+  </button>
+  </div>
+  <button id="productsNextBtn" class="productsArrowBtn" type="button"><img src="assets/setup/arrow_right.png" draggable="false"></button>
+</div>
+
+      <div class="productsIntroText">You start out with 500 coins. Use it wisely.</div>
+
+      <div id="productsBalanceText" class="productsBalanceText"></div>
+      <div id="productsTopMessage" class="productsTopMessage is-empty"></div>
+
+      <div id="shippingPurchaseRow" class="shippingCard"></div>
+
+      <div id="productsGrid" class="inventoryWizardWrap"></div>
+    </section>
+
+    <section id="pagePricing" class="page pricingPage">
+      <div class="topRow">
+        <div class="topSpacer"></div>
+      </div>
+
+      <div class="pricingMrBaoPanel"></div>
+
+      <div class="pricingStepRow">
+  <button id="pricingPrevBtn" class="pricingArrowBtn" type="button"><img src="assets/setup/arrow_left.png" draggable="false"></button>
+  <div class="pricingStepsBar">
+    <button class="step-link" data-step="setup">
+    <span class="step-num">STEP 1:</span>
+    <span class="step-label">SELECT A PROFILE</span>
+  </button>
+  <button class="step-link" data-step="products">
+    <span class="step-num">STEP 2:</span>
+    <span class="step-label">BUY YOUR INVENTORY</span>
+  </button>
+  <button class="step-link" data-step="pricing">
+    <span class="step-num">STEP 3:</span>
+    <span class="step-label">PRICE YOUR PRODUCTS</span>
+  </button>
+  </div>
+  <button id="pricingNextBtn" class="pricingArrowBtn" type="button"><img src="assets/setup/arrow_right.png" draggable="false"></button>
+</div>
+
+      <div class="pricingProductsLabel">Your Products</div>
+      
+      <div id="pricingPickerWrap" class="pricingPickerWrap"></div>
+
+      <p id="pricingMessage" class="pricingMessage"></p>
+
+      <div id="pricingCardWrap" class="pricingCardWrap"></div>
+      
+      <div class="pricingBottomButtonWrap">
+        <button id="setupStoreFinalBtn" class="pricingImageBtn">
+          <img src="assets/setup/setupstorebutton.png" alt="Start Game">
+        </button>
+      </div>
+    </section>
+
+   <section id="pageHome" class="page">
+  <div class="pageMain">
+    <div id="homeProducts" class="homeProducts"></div>
+  </div>
+
+
+      <div id="addProductOverlay" class="overlay hidden">
+        <div class="editProfileModal">
+          <button id="closeAddProductBtn" class="closeModalBtn">✕</button>
+
+          <h3 class="modalTitle">Add Products</h3>
+
+          <p class="smallText" style="text-align:center">
+            Select products to add to your store
+          </p>
+
+          <div id="addProductsGrid" class="productsGrid"></div>
+
+          <div class="modalBottom">
+        
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pageMarketing" class="page">
+      <div class="pageMain">
+        <div id="marketingHelperOverlay" class="pageHelperOverlay hidden"></div>
+
+        <div id="marketingTopStats" class="marketingTopStatsCard"></div>
+
+        <div class="marketingSectionTitle">YOUR LIVESTREAMING PAGE</div>
+
+        <div class="liveStage">
+          <div id="marketingP5Camera" class="liveStreamerImg marketingP5Camera"></div>
+
+          <div id="liveViewPill" class="liveViewPill">
+            <img class="liveViewPillIcon" src="assets/ui_icons/productview_icon.png" alt="">
+            <span id="liveViewsCount" class="liveViewPillValue">0</span>
+          </div>
+
+          <div id="liveChatLane" class="liveChatLane"></div>
+          <div id="liveHeartsLane" class="liveHeartsLane"></div>
+
+          <img
+            class="marketingGrayOverlay"
+            src="assets/marketing/phonelivestreamoverlay.png"
+            alt=""
+            aria-hidden="true"
+          >
+
+          <div class="liveControls">
+            <div id="liveTimer" class="liveTimer">00:00</div>
+
+            <button id="liveHoldBtn" class="liveHoldBtn" type="button" aria-label="Hold to livestream">
+              <img src="assets/marketing/livestreambutton.png" alt="Livestream button">
+            </button>
+
+            <div class="liveHoldLabel">HOLD TO LIVESTREAM</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pageOrders" class="page">
+      <div class="pageMain ordersPageMain">
+        <div id="ordersHelperOverlay" class="pageHelperOverlay hidden"></div>
+
+        <div id="ordersTopStats" class="ordersTopStatsCard"></div>
+
+        <div class="ordersSectionTitle">YOUR ORDERS</div>
+
+        <div class="ordersPhoneStage">
+          <div class="ordersPhoneTopBar"></div>
+
+          <div class="ordersPhoneBody">
+            <div class="ordersIntroText">
+              PACK CUSTOMER ORDERS TO GAIN MORE STORE ATTRACTION. BEWARE ORDERS CAN GET CANCELED OR REFUNDED.
+            </div>
+
+            <div id="ordersTabsViewport" class="ordersTabsViewport">
+              <div id="ordersTabs" class="ordersPixelTabs"></div>
+            </div>
+
+            <div class="ordersDividerWrap">
+              <div class="ordersDividerLine"></div>
+              <div id="ordersSliderThumb" class="ordersSliderThumb"></div>
+            </div>
+
+            <div id="ordersList" class="ordersPixelList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pageChat" class="page">
+      <div class="pageMain chatPageMain">
+        <div id="chatHelperOverlay" class="pageHelperOverlay hidden"></div>
+
+        <div id="chatTopStats" class="chatTopStatsCard"></div>
+
+        <div class="chatSectionTitle">YOUR CHATS</div>
+
+        <div class="chatPhoneStage">
+          <div class="chatPhoneBody">
+            <div class="chatIntroText">
+              ANSWER CUSTOMER INQUIRIES TO GAIN MORE STORE ATTRACTION. BEWARE CUSTOMERS MAY LEAVE CHATS IF NOT SATISFIED.
+            </div>
+
+            <div class="chatTabsViewport">
+              <div id="chatTabs" class="chatPixelTabs"></div>
+            </div>
+
+            <div class="chatDividerWrap">
+              <div class="chatDividerLine"></div>
+              <div id="chatSliderThumb" class="chatSliderThumb"></div>
+            </div>
+
+            <div id="chatInbox" class="chatListWrap"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav id="bottomNav" class="bottomNav hidden">
+      <button id="navHome" class="navBtn" data-page="pageHome">
+  <img src="assets/ui_nav/home_icon.png">
+</button>
+
+<button id="navStorage" class="navBtn" data-page="pageStorage">
+  <img src="assets/ui_nav/storage_icon.png">
+</button>
+
+<button id="navMarketing" class="navBtn" data-page="pageMarketing">
+  <img src="assets/ui_nav/livestream_icon.png">
+</button>
+
+<button id="navOrders" class="navBtn" data-page="pageOrders">
+  <img src="assets/ui_nav/orders_icon.png">
+  <span id="navOrdersBadge" class="navBadge">0</span>
+</button>
+
+<button id="navChat" class="navBtn" data-page="pageChat">
+  <img src="assets/ui_nav/chat_icon.png">
+  <span id="navChatBadge" class="navBadge">0</span>
+</button>
+    </nav>
+
+    <div id="editProfileOverlay" class="overlay hidden">
+  <div class="editProfileModal imageBasedModal">
+    <img src="assets/editProfile/phonepopup.png" class="modalBgAsset" alt="Modal Background">
+
+    <div class="modalContentWrap">
+      <div class="modalHeaderRow">
+        <h3 class="modalTitle editProfileHeading">EDIT PROFILE</h3>
+        <button id="closeEditProfileBtn" class="imageCloseBtn" type="button">
+          <img src="assets/editProfile/xbutton.png" alt="Close">
+        </button>
+      </div>
+
+      <div class="editProfileTopSection">
+        <div class="editProfileLargeAvatarWrap">
+          <img id="editLargeAvatar" src="" alt="Current Avatar">
+        </div>
+
+        <div class="editProfileTopInputs">
+          <div class="pixelInputGroup">
+            <label class="pixelLabel">STORE NAME:</label>
+            <div class="imageInputContainer nameInputContainer">
+              <img src="assets/editProfile/editnameinput.png" class="inputBg" alt="">
+              <input
+                id="editStoreNameInput"
+                class="overlayInput"
+                type="text"
+                maxlength="24"
+              >
+            </div>
+          </div>
+
+          <div class="sellerInfoRow">
+            <div class="pixelTextGroup sellerInfoItem">
+              <label class="pixelLabel">SELLER ID:</label>
+              <div id="editStoreIdDisplay" class="pixelReadOnly"></div>
+            </div>
+          </div>
+
+          <div class="sellerInfoRow">
+            <div class="pixelTextGroup sellerInfoItem sellerInfoItemRegion">
+              <label class="pixelLabel">REGION:</label>
+              <div id="editRegionDisplay" class="pixelReadOnly"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="editProfileMiddleSection">
+  <label class="pixelLabel storeTypeLabel">STORE TYPE:</label>
+
+  <div class="imageInputContainer storeTypeInputContainer">
+    <img src="assets/editProfile/editstoretypeinput.png" class="inputBg" alt="">
+    <input
+      id="editStoreTypeInput"
+      class="overlayInput"
+      type="text"
+      maxlength="23"
+    >
+  </div>
+</div>
+
+      <div class="editProfileAvatarSection">
+        <label class="pixelLabel">STORE AVATAR:</label>
+        <div id="editAvatarRow" class="avatarRow"></div>
+      </div>
+
+      <div class="modalBottom">
+        <button id="updateProfileBtn" class="imageActionBtn" type="button">
+          <img src="assets/editProfile/updateprofilebutton.png" alt="Update Profile">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <section id="pageStorage" class="page">
+      <div id="storagePageMain" class="pageMain">
+        <div id="storageTopStats" class="storageTopStatsCard"></div>
+
+        <div class="storageSectionTitle">YOUR STORAGE SHELF</div>
+
+        <div id="storageMainBlock"></div>
+
+        <div id="storageBottomTabBar" class="storageBottomTabBar"></div>
+
+        <div id="storageGridWrap" class="storageGridWrap"></div>
+      </div>
+    </section>
+
+    <div id="shippingRestockOverlay" class="overlay hidden">
+      <div class="editProfileModal">
+        <button id="closeShippingRestockBtn" class="closeModalBtn">✕</button>
+
+        <h3 class="modalTitle">Restock Shipping Boxes</h3>
+
+        <p class="smallText" style="text-align:center; margin-top:6px;">
+          Boxes cost <b>$0.25</b> each. You need <b>1 box per item shipped</b>.
+        </p>
+
+        <div class="stepRow" style="margin-top:10px;">
+          <div class="stepLabel">Budget</div>
+          <div id="restockBudgetText" class="stepNum">0</div>
+        </div>
+
+        <div class="stepRow">
+          <div class="stepLabel">Boxes</div>
+          <div class="stepper">
+            <button id="restockMinus" class="stepBtn">−</button>
+            <div id="restockQty" class="stepNum">0</div>
+            <button id="restockPlus" class="stepBtn">+</button>
+          </div>
+        </div>
+
+        <div class="stepRow">
+          <div class="stepLabel">Cost</div>
+          <div id="restockCostText" class="stepNum">0</div>
+        </div>
+
+        <div class="modalBottom">
+        </div>
+      </div>
+    </div>
+
+    <div id="dayOverlay" class="overlay hidden">
+  </div>
+
+  </div>
+  <script>
+  let lastTouchEnd = 0;
+
+  document.addEventListener("touchend", function (event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+<script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

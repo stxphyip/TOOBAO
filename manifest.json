@@ -1,0 +1,12 @@
+{
+  "name": "TOOBAO",
+  "icons": [
+    {
+      "src": "assets/backgrounds/toobao.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "orientation": "Natural",
+  "display": "standalone"
+}

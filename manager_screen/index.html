@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Toobao Store Manager</title>
+
+  <!-- Makes assets/... and styles/... load from the main capstone_game folder -->
+  <base href="/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Micro+5&family=Tiny5&display=swap" rel="stylesheet">
+
+  <!-- Uses your existing full game CSS, including old manager styles -->
+  <link rel="stylesheet" href="styles/app.css">
+
+  <!-- Optional manager-screen-only overrides -->
+  <link rel="stylesheet" href="manager_screen/manager.css">
+</head>
+
+<body class="managerWindowBody">
+  <div id="appRoot" class="managerApp">
+
+    <section id="pageManager" class="page managerPage show">
+      <div class="managerShell">
+
+        <aside class="managerSidebar">
+          <img id="managerSidebarIcon" class="managerSidebarIcon" src="assets/manager/manager_icon.png" alt="Store Manager">
+          <div class="managerSidebarLabel">STORE MANAGER</div>
+
+          <div class="managerProfileBlock">
+            <div class="managerProfileAvatarWrap">
+              <img id="managerProfileAvatar" class="managerProfileAvatar" src="assets/avatars/frog.png" alt="Profile Avatar">
+            </div>
+
+            <div id="managerProfileStoreName" class="managerProfileStoreName">[STORE NAME]</div>
+            <div id="managerProfileSellerId" class="managerProfileMetaLine">SELLER ID: [ID]</div>
+            <div id="managerProfileRegion" class="managerProfileMetaLine">REGION: [REGION]</div>
+            <div id="managerProfileStoreType" class="managerProfileMetaLine">STORE TYPE: [TYPE]</div>
+          </div>
+
+          <button id="managerBackBtn" class="managerBackBtn" type="button">
+            <img src="assets/manager/backbutton.png" alt="Back">
+          </button>
+        </aside>
+
+        <main class="managerBoard">
+
+          <div class="managerTopRow">
+            <div class="managerWelcomeArea">
+              <div class="managerWelcome">
+                WELCOME, <span id="managerWelcomeName">[STORE NAME]</span>!
+              </div>
+
+              <div class="managerDayTimeRow">
+                <div class="managerDayRow">
+                  <img class="managerDayTimeIcon" src="assets/manager/day1_icon.png" alt="" id="managerDayIcon">
+                  <span class="managerDayText" id="managerDayText">DAY 1</span>
+                </div>
+
+                <div class="managerTimeRow">
+                  <img class="managerDayTimeIcon" src="assets/manager/timeicon.png" alt="">
+                  <span class="managerTimeText" id="managerTimeText">00:00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="managerHealthBlock">
+              <img class="managerHealthBg" src="assets/manager/healthscoreblock.png" alt="">
+
+              <div class="managerHealthInner">
+                <div class="managerHealthTextCol">
+                  <div class="managerHealthLabel">(TAOBAO SELLER HEALTH SCORE)</div>
+                  <div id="managerHealthStatus" class="managerHealthStatus">POOR</div>
+                  <div class="managerHealthSubLabel">PROGRESS SCORE</div>
+                  <div id="managerHealthMessage" class="managerHealthMessage">
+                    MR.BAO ISN'T HAPPY WITH YOUR WORK. WORK HARDER TO UP YOUR SCORE.
+                  </div>
+                </div>
+
+                <div class="managerHealthSpinnerWrap">
+                  <img id="managerHealthSpinner" class="managerHealthSpinner" src="assets/manager/healthscorespinner.png" alt="Health Score Spinner">
+                  <img id="managerHealthNeedle" class="managerHealthNeedle" src="assets/manager/healthscorespinnerneedle.png" alt="Spinner Needle">
+                  <img id="managerHealthAvatar" class="managerHealthAvatar" src="assets/manager/mrbaoavatar.png" alt="Mr Bao">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="managerStatsGrid">
+            <div class="managerBlock managerStarsBlock">
+              <img class="managerBlockBg" src="assets/manager/starsblock.png" alt="">
+              <div class="managerBlockInner managerStarsInner">
+                <img id="managerStarsImg" class="managerStarsImg" src="assets/ui_icons/1star.png" alt="Stars">
+                <div class="managerBlockLabel">(CURRENT STORE LEVEL)</div>
+              </div>
+            </div>
+
+            <div class="managerBlock managerFollowersBlock">
+              <img class="managerBlockBg" src="assets/manager/followersblock.png" alt="">
+              <div class="managerBlockInner managerFollowersInner">
+                <div class="managerFollowerStatRow">
+                  <img class="managerFollowersIcon" src="assets/manager/followericon.png" alt="">
+                  <div id="managerFollowers" class="managerBlockNumber managerBlockNumberLight">0</div>
+                </div>
+                <div class="managerBlockLabel managerBlockLabelLight">(CURRENT FOLLOWER COUNT)</div>
+              </div>
+            </div>
+
+            <div class="managerBlock managerAwaitingBlock">
+              <img class="managerBlockBg" src="assets/manager/awaitingordersblock.png" alt="">
+              <div class="managerBlockInner managerAwaitingInner">
+                <img class="managerAwaitingIcon" src="assets/manager/smallshippingboxicon.png" alt="">
+                <div id="managerAwaitingShipment" class="managerBlockNumber">0</div>
+                <div class="managerBlockLabel">(ORDERS AWAITING SHIPMENT)</div>
+              </div>
+            </div>
+
+            <div class="managerBlock managerBalanceBlock">
+              <img class="managerBlockBg" src="assets/manager/balanceblock.png" alt="">
+              <div class="managerBlockInner managerBalanceInner">
+                <img class="managerCoinIcon" src="assets/manager/coin.png" alt="">
+                <div class="managerBalanceTextCol">
+                  <div class="managerBalanceLabel">BALANCE REMAINING:</div>
+                  <div id="managerRevenue" class="managerBigNumber managerBigNumberLight">0</div>
+
+                  <div class="managerBalanceLabel managerBalanceLabelLower">TOTAL BALANCE SPENT:</div>
+                  <div id="managerManufacturingCost" class="managerBigNumber managerBigNumberLight">0</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="managerBlock managerSpeedBlock">
+              <img class="managerBlockBg" src="assets/manager/deliveryblock.png" alt="">
+
+              <div class="managerBlockInner managerSpeedInner">
+                <div class="managerSpeedRow">
+                  <img class="managerSpeedIcon" src="assets/manager/deliveryspeed_icon.png" alt="">
+                  <div class="managerSpeedLabel">DELIVERY SPEED:</div>
+                  <div id="managerDeliverySpeed" class="managerSpeedValue">0</div>
+                  <div class="managerSpeedUnit">seconds</div>
+                </div>
+
+                <div class="managerSpeedRow">
+                  <img class="managerSpeedIcon" src="assets/manager/chatspeed_icon.png" alt="">
+                  <div class="managerSpeedLabel">CHAT SPEED:</div>
+                  <div id="managerChatSpeed" class="managerSpeedValue">0</div>
+                  <div class="managerSpeedUnit">seconds</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="managerBlock managerOrdersBlock">
+              <img class="managerBlockBg" src="assets/manager/ordersblock.png" alt="">
+
+              <div class="managerBlockInner managerOrdersInner">
+                <img class="managerOrdersIcon" src="assets/manager/largeshippingboxicon.png" alt="">
+
+                <div class="managerOrdersTextCol">
+                  <div class="managerOrdersLabel"># OF ORDERS TODAY:</div>
+                  <div id="managerOrdersToday" class="managerBigNumber managerBigNumberLight">0</div>
+
+                  <div class="managerOrdersLabel managerOrdersLabelLower">TOTAL ORDER COUNT:</div>
+                  <div id="managerTotalOrders" class="managerBigNumber managerBigNumberLight">0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="managerBottomRow">
+            <div class="managerBlock managerViewsBlock">
+              <img class="managerBlockBg" src="assets/manager/changeinviewsblock.png" alt="">
+
+              <div class="managerBlockInner managerViewsInner">
+                <div class="managerViewsChartCol">
+                  <div class="managerSectionTitle">CHANGE IN VIEWS</div>
+                  <div id="managerChartSvg" class="managerChartSvg"></div>
+                </div>
+
+                <div class="managerViewsInfoCol">
+                  <img class="managerViewsIcon" src="assets/manager/viewcounticon.png" alt="">
+
+                  <div class="managerViewsInfoLabel">TODAY'S VIEW COUNT:</div>
+                  <div id="managerViewsToday" class="managerBigNumber managerBigNumberLight">0</div>
+
+                  <div class="managerViewsInfoLabel managerViewsInfoLabelLower">TOTAL VIEW COUNT:</div>
+                  <div id="managerTotalViews" class="managerBigNumber managerBigNumberLight">0</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="managerBlock managerBestsellerBlock">
+              <img class="managerBlockBg" src="assets/manager/topsellerblock.png" alt="">
+
+              <div class="managerBlockInner managerBestsellerInner">
+                <div class="managerSectionTitle managerSectionTitleDark">TOP BESTSELLERS</div>
+                <div id="managerBestProducts" class="managerBestProducts"></div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+      <div id="managerWarningPopup" class="managerWarningPopup hidden">
+        <div class="managerWarningModal">
+          <img class="managerWarningModalBg" src="assets/popup/warningmodal.png" alt="Warning">
+
+          <button id="managerWarningCloseBtn" class="managerWarningCloseBtn" type="button" aria-label="Close">
+            <img src="assets/popup/xbuttonwhite.png" alt="Close">
+          </button>
+
+          <div class="managerWarningModalInner">
+            <div class="managerWarningTitle">CAUTION!</div>
+            <img id="managerWarningIconImg" class="managerWarningIconImg" src="assets/popup/cautionsign.png" alt="">
+            <div id="managerWarningText" class="managerWarningText">LOW IN BALANCE</div>
+          </div>
+        </div>
+      </div>
+
+      <audio id="managerCautionAudio" src="assets/sounds/caution.mp3" loop preload="auto"></audio>
+    </section>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="manager_screen/manager.js"></script>
+</body>
+</html>

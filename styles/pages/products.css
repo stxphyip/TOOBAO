@@ -1,0 +1,599 @@
+/* styles/pages/products.css */
+
+.productsPage {
+  position: relative;
+  background-image: url("../../assets/backgrounds/setupbg.png");
+  background-size: 400px 752px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 46px ;
+  padding: 28px 18px 18px 18px;
+  overflow: visible;
+}
+
+
+.productsPage .topTitle {
+  text-align: center;
+  color: #4D1F1D;
+}
+
+.productsMrBaoPanel {
+  width: 352px;
+  height: 80px;
+  margin: 12px auto 12px;
+  background-image: url("../../assets/setup/mrbao_inventory.png");
+  background-size: 352px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 0 0 auto;
+}
+
+
+
+.productsStepsBar {
+  position: relative;
+  width: 352px;
+  height: 72px;
+  background-size: 352px 72px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex; /* Layout the three buttons horizontally */
+}
+
+/* Individual button clickable areas */
+.step-link {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  /* Match the pixel font spacing from your image */
+  gap: 1px; 
+}
+
+.step-link .step-num {
+  font-family: "Micro 5", sans-serif;
+  font-size: 15px; /* Slightly larger to match image */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-link .step-label {
+  font-family: "Tiny5", sans-serif;
+  font-size: 15px;
+  line-height: 0.8; /* Tight line height for pixel fonts */
+  text-align: center;
+  display: block;
+  max-width: 90px; /* Forces wrap exactly like the image */
+}
+
+/* Visual feedback for the current page */
+.pageProducts .step-link[data-step="products"] {
+  background: transparent; /* Slight highlight on active step */
+}
+
+/* Base text style (Inactive) */
+.step-link .step-num, .step-link .step-label {
+  color: #fff7ef; /* Brown */
+  transition: color 0.2s;
+}
+
+/* Active Step Text Styles (Black) */
+.productsPage .step-link[data-step="products"] .step-num,
+.productsPage .step-link[data-step="products"] .step-label {
+  color: #4D1F1D !important;
+}
+
+
+.productsStepRow {
+  position: relative;
+  width: 416px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 30px 352px 30px;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2px;
+  margin: 0 auto 8px;
+  z-index: 5;
+}
+
+.productsArrowBtn {
+  width: 30px;
+  height: 45px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.productsArrowBtn img {
+  width: 30px;
+  height: 45px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.productsStepsBar {
+  width: 352px;
+  height: 72px;
+  background-image: url("../../assets/setup/steps_buy_inventory.png");
+  background-size: 352px 72px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.productsIntroText {
+  width: 368px;
+  margin: 0 auto 4px;
+  text-align: center;
+  color: #fff7ef;
+  line-height: 1;
+}
+
+.productsBalanceText {
+  width: 368px;
+  margin: 0 auto 4px;
+  text-align: center;
+  color: #fff7ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Tiny5", cursive;
+  font-size: 20px;
+  text-transform: uppercase;
+  gap: 8px;
+  line-height: 1;
+}
+
+.productsBalanceText .coinInline {
+  width: 24px; /* Scaled coin icon up to match the larger text */
+  height: 24px;
+}
+
+.productsBalanceText .coinValueWrap {
+  font-family: "Micro 5", cursive;
+  font-size: 25px; /* Made the actual number slightly larger than the "Balance:" label */
+  color: #fff7ef;
+}
+
+.coinInline {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.coinValueWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* reserve warning space from the start so layout does not jump */
+.productsMessageInline {
+  width: 368px;
+  margin: 0 auto 6px;
+  text-align: center;
+  color: #fff7ef;
+  line-height: 1;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   ORDER SHIPPING BOXES
+========================= */
+
+.shippingCard {
+  width: 368px;
+  height: 132px;
+  margin: 0 auto 6px;
+  background-image: url("../../assets/setup/ordershippingboxeswhiteblock.png");
+  background-size: 368px 132px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding: 14px 16px 10px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.shippingCardTitle {
+  color: #4D1F1D;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.shippingCardInner {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  align-items: center;
+  height: calc(100% - 24px);
+}
+
+.shippingBoxArt {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.shippingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coinRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  color: #e57d1f;
+  line-height: 1;
+}
+
+.coinLabelDark {
+  color: #4D1F1D;
+}
+
+.inventoryQtyRow {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Ensures the whole unit stays centered in the info column */
+  gap: 8px; /* Standard 8px gap for your mobile layout */
+  margin-top: 4px;
+}
+
+
+.inventoryStepBtn {
+  width: 20px;  /* Requested Width */
+  height: 30px; /* Requested Height */
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inventoryStepBtn img {
+  width: 20px;
+  height: 30px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.inventoryQtyBox {
+  width: 50px;  /* Scaled down from 68px to fit 20x30 arrows better */
+  height: 30px; /* Matched to arrow height */
+  background: #d7d7d7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e57d1f;
+  font-family: "Micro 5", cursive; /* Ensuring consistency with your UI */
+  font-size: 20px;
+  line-height: 1;
+}
+
+.shippingInfo .inventoryQtyRow {
+  margin-top: 2px;
+  justify-content: flex-start; /* Keeps it aligned with text on shipping card */
+}
+
+/* =========================
+   PRODUCTS SECTION
+========================= */
+
+.inventoryWizardWrap {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.productsSectionTitle {
+  width: 368px;
+  margin: 0 auto 10px;
+  color: #fff7ef;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.productPickerRow {
+  width: 100%;
+  max-width: 400px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* Increased from 6px to 24px to create more space */
+  margin: 0 auto 10px; 
+}
+
+.productPickerArrow {
+  width: 30px;
+  height: 45px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productPickerArrow img {
+  width: 30px;
+  height: 45px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+.productThumbStrip {
+  /* Removed fixed width to allow the 8px gap logic to work */
+  width: auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Gap between individual product thumbnails */
+}
+
+.productThumb {
+  position: relative;
+  /* Keeping your original sizing */
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: transparent;
+  padding: 0; /* Reduced padding to ensure selection frame fits tight */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.productThumb.is-selected::after {
+  content: "";
+  position: absolute;
+  /* Centering the 96x96 frame over the 86x92 thumb */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 96px;  /* Requested Width */
+  height: 96px; /* Requested Height */
+  
+  background-image: url("../../assets/setup/product_selected.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 2; /* Ensures it sits above the product image */
+}
+
+.productOrderCard {
+  width: 368px;
+  height: 200px;
+  margin: 0 auto;
+  background-image: url("../../assets/setup/orderproductswhiteblock.png");
+  background-size: 368px 200px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding: 14px 16px 10px;
+  overflow: hidden;
+}
+
+.productOrderTitle {
+  color: #4D1F1D;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.productOrderInner {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 10px;
+  align-items: start;
+  height: calc(100% - 24px);
+}
+
+.productMainArtWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productMainArt {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.productMainName {
+  margin-top: 6px;
+  color: #4D1F1D;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Specific override for the Order Products block alignment */
+.productInfo .inventoryQtyRow {
+  display: flex;
+  align-items: center;
+  /* Forces the QTY label and arrows to the left */
+  justify-content: flex-start; 
+  gap: 8px;
+  /* Align it precisely under the MANUFACTURING text */
+  margin-left: 0; 
+  margin-top: 8px;
+}
+
+.productInfo .inventoryQtyRow span {
+  /* Ensures the 'QTY:' text is left-aligned */
+  text-align: left;
+  min-width: 40px; 
+}
+
+/* =========================
+   BUTTON / ARROW PRESS EFFECTS
+========================= */
+
+.productsArrowBtn,
+.productPickerArrow,
+.inventoryStepBtn,
+.step-link,
+.productThumb {
+  transition: transform 0.08s ease, filter 0.08s ease;
+  transform-origin: center;
+}
+
+.productsArrowBtn:active,
+.productPickerArrow:active,
+.inventoryStepBtn:active,
+.step-link:active,
+.productThumb:active {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
+.productsArrowBtn img,
+.productPickerArrow img,
+.inventoryStepBtn img,
+.productThumb img {
+  pointer-events: none;
+}
+
+@media (max-width: 460px) {
+  .productsPage {
+    background-size: 400px 752px;
+    background-position: center 60px !important;
+    padding: 28px 18px 18px 18px !important;
+    overflow: hidden;
+  }
+
+  .productsMrBaoPanel {
+    width: 352px;
+    height: 80px;
+    background-size: 352px 80px;
+    margin: 4px auto 10px !important;
+    transform: translateY(44px);
+  }
+
+  .productsStepRow {
+    width: 400px;
+    left: 50%;
+    grid-template-columns: 30px 352px 30px;
+    column-gap: 2px;
+    justify-content: center;
+    transform: translateX(-50%) translateY(44px);
+  }
+
+  .productsArrowBtn {
+    width: 30px;
+    height: 45px;
+  }
+
+  .productsArrowBtn img {
+    width: 30px;
+    height: 45px;
+  }
+
+  .productsStepsBar {
+    width: 352px;
+    height: 72px;
+    background-size: 352px 72px;
+  }
+
+  .productsIntroText,
+.productsBalanceText,
+.productsMessageInline {
+  width: 368px;
+  transform: translateY(44px);
+}
+
+.productsSectionTitle {
+  width: 368px;
+  transform: translateY(2px);
+}
+
+  .shippingCard {
+    width: 368px;
+    height: 132px;
+    background-size: 368px 132px;
+    transform: translateY(44px);
+  }
+
+  .inventoryWizardWrap {
+    width: 400px;
+    transform: translateY(44px);
+  }
+
+  .productPickerRow {
+  width: 400px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 8px; /* smaller gap on phone */
+}
+
+  .productPickerArrow {
+    width: 30px;
+    height: 45px;
+  }
+
+  .productPickerArrow img {
+    width: 30px;
+    height: 45px;
+  }
+
+  .productOrderCard {
+    width: 368px;
+    height: 200px;
+    background-size: 368px 200px;
+  }
+}

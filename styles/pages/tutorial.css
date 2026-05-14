@@ -1,0 +1,483 @@
+/* styles/pages/tutorial.css */
+
+.tutorialPage {
+  position: relative;
+  background-image: url("../../assets/backgrounds/setupbg.png");
+  background-size: 400px 752px;
+  background-repeat: no-repeat;
+  background-position: center ;
+  padding-top: 46px;
+  padding: 28px 18px 18px 18px;
+  overflow: visible;
+}
+
+.tutorialPage.show {
+  display: flex;
+}
+
+/* =========================
+   TOP MR BAO BLOCK
+========================= */
+
+.tutorialHeader {
+  position: relative;
+  width: 352px;
+  height: 80px;
+  margin: 14px auto 12px;
+  flex: 0 0 auto;
+  background-position: center;
+  justify-content: center;
+}
+
+.tutorialHeaderBg {
+  position: absolute;
+  inset: 0;
+  width: 352px;
+  height: 80px;
+  margin: 14px auto 12px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background-position: center;
+  justify-content: center;
+}
+
+/* =========================
+   BODY
+========================= */
+
+.tutorialBody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  gap: 8px !important;
+}
+
+/* =========================
+   MAIN WHITE BLOCKS
+========================= */
+
+.tutorialPanel {
+  position: relative;
+  width: 368px;
+  height: 160px;
+  flex: 0 0 auto;
+}
+
+.tutorialPanelBg {
+  position: absolute;
+  inset: 0;
+  width: 368px;
+  height: 160px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.tutorialPanelTitle {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 32px;
+  font-family: "Tiny5", sans-serif;
+  font-size: 25px;
+  line-height: 32px;
+  color: #fff7ef;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+
+/* =========================
+   HOW TO PLAY
+========================= */
+
+.tutorialPlayList {
+  position: absolute;
+  left: 10px;
+  top: 45px;
+
+  display: flex;
+  flex-direction: column;
+
+  /* smaller gap so all 3 rows fit */
+  gap: 1px;
+}
+
+.tutorialPlayRow {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+
+  /* smaller row height */
+  min-height: 22px;
+}
+
+.tutorialPlayRow img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  justify-self: center;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.tutorialPlayRow span {
+  font-family: "Micro 5", sans-serif;
+
+  /* slightly smaller so it does not clip */
+  font-size: 23px;
+  line-height: 0.82;
+
+  color: #4D1F1D;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* =========================
+   CAPTION BLOCKS
+========================= */
+
+.tutorialCaption {
+  position: relative;
+  width: 388px;          /* wider visual area */
+  height: 52px;
+  flex: 0 0 auto;
+  margin-top: -28px;
+  margin-bottom: -1px;
+}
+
+.tutorialCaptionBg {
+  position: absolute;
+  left: 0;             /* keeps the image centered even with wider text area */
+  top: 0;
+  width: 388px;
+  height: 52px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.tutorialCaptionText {
+  position: absolute;
+  left: 10px;            /* wider text width */
+  right: 10px;
+  top: 8px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Micro 5", sans-serif;
+  font-size: 22px;
+  line-height: 0.86;
+  color: #4D1F1D;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+}
+
+/* =========================
+   HOW TO WIN
+========================= */
+
+.tutorialWinContent {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  top: 55px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tutorialBaoWin {
+  width: 90px !important;
+  height: 90px !important;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  flex: 0 0 auto;
+  margin-top: -20px;
+}
+
+.tutorialWinRules {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 0;
+}
+
+.tutorialIconTextRow {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  min-height: 25px;
+}
+
+.tutorialIconTextRow span {
+  font-family: "Micro 5", sans-serif;
+  font-size: 25px;
+  line-height: 0.86;
+  color: #4D1F1D;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* row 1: survive 3 days, move text slightly right */
+.tutorialIconTextRow:nth-child(1) {
+  grid-template-columns: 70px 1fr;
+}
+
+.tutorialIconTextRow:nth-child(1) span {
+  transform: translateX(14px);
+}
+
+/* row 2: time row, move icon + text left */
+.tutorialIconTextRow:nth-child(2) {
+  grid-template-columns: 30px 1fr;
+  transform: translateX(-3px);
+}
+
+/* HOW TO WIN: move the 5 stars row up a little */
+.tutorialIconTextRow:nth-child(3) {
+  grid-template-columns: 58px 1fr;
+  transform: translateX(-4px) translateY(-6px);
+}
+
+.tutorialIconTextRow:nth-child(3) span {
+  transform: translateX(18px);
+}
+
+.tutorialDaysRow {
+  width: 73px;
+  height: 26px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  justify-self: center;
+}
+
+.tutorialHourglassImg {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  justify-self: center;
+  transform: translateX(-8px);
+}
+
+.tutorialStarsRowSmall {
+  width: 70px;
+  height: 34px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  justify-self: center;
+  transform: translateY(1px);
+}
+
+/* =========================
+   HOW TO LOSE
+========================= */
+
+.tutorialLosePanel {
+  margin-top: 0;
+}
+
+.tutorialLoseContent {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 50px;
+  height: 94px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tutorialBaoLose {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  flex: 0 0 auto;
+
+}
+
+.tutorialLoseRules {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.tutorialLoseTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.tutorialCoinWarn {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.tutorialLoseTopRow span {
+  font-family: "Micro 5", sans-serif;
+  font-size: 25px;
+  line-height: 0.86;
+  color: #4D1F1D;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tutorialOrRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  margin: 1px 0 1px;
+}
+
+.tutorialOrRow img {
+  width: 80px;
+  height: 16px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.tutorialOrRow span {
+  font-family: "Micro 5", sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: #ee7623;
+  text-transform: uppercase;
+}
+
+.tutorialLoseBottomRow {
+  display: grid;
+  grid-template-columns: 60px 1fr; /* more space between icon and text */
+  align-items: center;
+  width: 100%;
+  padding-left: 14px;
+  box-sizing: border-box;
+
+  /* move the icon/text group slightly up */
+  transform: translateY(-1px);
+  transform: translateX(-10px);
+}
+
+.tutorialOneStar {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  justify-self: center;
+}
+
+.tutorialLoseBottomRow span {
+  font-family: "Micro 5", sans-serif;
+  font-size: 25px;
+  line-height: 0.86;
+  color: #4D1F1D;
+  text-transform: uppercase;
+  justify-content: center;
+  white-space: normal;
+  width: 165px;
+}
+
+/* =========================
+   NAV BUTTONS
+========================= */
+
+.tutNavButtons {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  z-index: 10;
+}
+
+.tutBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.tutBtn:active {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
+.tutBtn img {
+  width: 190px;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 460px) {
+  .tutorialPage {
+    background-size: 400px 752px;
+    background-position: center 60px;
+    padding: 28px 18px 18px 18px !important;
+    overflow: hidden;
+  }
+
+  .tutorialHeader {
+    margin: 4px auto 10px !important;
+    transform: translateY(60px);
+  }
+
+  .tutorialHeaderBg {
+    margin: 0 !important;
+  }
+
+  .tutorialBody {
+    margin-top: 2px;
+    gap: 7px !important;
+    transform: translateY(60px);
+  }
+
+  .tutorialPanel {
+    width: 368px;
+    height: 160px;
+  }
+
+  .tutorialCaption {
+    margin-top: -30px;
+    margin-bottom: -2px;
+  }
+
+  .tutNavButtons {
+    bottom: 58px !important;
+    gap: 16px;
+  }
+
+  .tutBtn img {
+    width: 180px;
+  }
+}

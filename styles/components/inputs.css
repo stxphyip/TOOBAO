@@ -1,0 +1,15 @@
+.input {
+  width: 85%;
+  max-width: 320px;
+  padding: 12px;
+  margin: 12px;
+  display: block;
+  border-radius: 12px;
+  border: 2px solid var(--taobao-border);
+  font-size: 15px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--taobao-orange);
+}

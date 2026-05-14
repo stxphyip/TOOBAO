@@ -1,0 +1,38 @@
+/* styles/pages/home.css */
+
+#pageHome {
+  overflow: hidden;
+  background: var(--taobao-orange);
+}
+
+#pageHome .pageMain {
+  padding: 8px 0 92px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
+#homeHelperBar {
+  width: 440px;
+  height: 220px;
+  min-width: 440px;
+  max-width: 440px;
+  min-height: 220px;
+  max-height: 220px;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  flex: 0 0 220px;
+  box-sizing: border-box;
+}
+
+.floatingAddProductBtn {
+  display: none !important;
+}
+
+@media (max-width: 460px) {
+  #pageHome .pageMain {
+    padding-top: 0px !important;
+    padding-bottom: 92px;
+  }
+}

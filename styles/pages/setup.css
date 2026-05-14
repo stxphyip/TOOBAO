@@ -1,0 +1,285 @@
+/* styles/pages/setup.css */
+
+.setupPage {
+  position: relative;
+  background-image: url("../../assets/backgrounds/setupbg.png");
+  background-size: 400px 752px;
+  background-repeat: no-repeat;
+  background-position: center !important;
+  padding-top: 46px;
+  padding: 28px 18px 18px 18px;
+  overflow: visible;
+}
+
+.setupPage .topTitle {
+  text-align: center;
+  color: #4D1F1D;
+}
+
+.setupPage .smallText {
+  display: none;
+}
+
+/* Mr Bao panel */
+.setupMrBaoPanel {
+  width: 352px;
+  height: 80px;
+  margin: 12px auto 12px;
+  background-image: url("../../assets/setup/mrbao_panel.png");
+  background-size: 352px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 0 0 auto;
+}
+
+.setupStepsBar {
+  position: relative;
+  width: 352px;
+  height: 72px;
+  background-size: 352px 72px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+}
+
+/* Individual button clickable areas */
+.step-link {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  gap: 1px;
+  text-decoration: none;
+}
+
+/* BASE STYLE */
+.step-link .step-num,
+.step-link .step-label {
+  color: #fff7ef !important;
+  transition: color 0.2s;
+  pointer-events: none;
+}
+
+.step-link .step-num {
+  font-family: "Micro 5", sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-link .step-label {
+  font-family: "Tiny5", sans-serif;
+  font-size: 15px;
+  line-height: 0.8;
+  text-align: center;
+  display: block;
+  max-width: 90px;
+}
+
+/* Active Step */
+.setupPage .step-link[data-step="setup"] .step-num,
+.setupPage .step-link[data-step="setup"] .step-label {
+  color: #4D1F1D !important;
+}
+
+.setupStepRow {
+  position: relative;
+  width: 416px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 30px 352px 30px;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2px;
+  margin: 0 auto 8px;
+  z-index: 5;
+}
+
+.setupArrowBtn {
+  width: 30px;
+  height: 45px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.setupArrowBtn img {
+  width: 30px;
+  height: 45px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* =========================
+   BUTTON / ARROW PRESS EFFECTS
+========================= */
+
+.setupArrowBtn,
+.step-link,
+.presetTile {
+  transition: transform 0.08s ease, filter 0.08s ease;
+  transform-origin: center;
+}
+
+.setupArrowBtn:active,
+.step-link:active,
+.presetTile:active {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
+.setupArrowBtn img,
+.presetTileCardImg {
+  pointer-events: none;
+}
+
+.setupStepsBar {
+  width: 352px;
+  height: 72px;
+  background-image: url("../../assets/setup/steps_select_profile.png");
+  background-size: 352px 72px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* selected text */
+.message {
+  width: 368px;
+  margin: 2px auto 10px;
+  text-align: center;
+  color: #fff7ef;
+  line-height: 1;
+  min-height: 20px;
+}
+
+/* grid */
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 184px);
+  gap: 10px;
+  width: max-content;
+  margin: -4px auto 0;
+  padding: 0 0 24px;
+  justify-content: center;
+}
+
+/* tile */
+.presetTile {
+  position: relative;
+  width: 184px;
+  height: 248px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: block;
+}
+
+.presetTileCardImg {
+  width: 184px;
+  height: 248px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* checkmark */
+.presetTileCheck {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 30px;
+  height: 30px;
+  display: none;
+  z-index: 2;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.presetTile.is-selected .presetTileCheck {
+  display: block;
+}
+
+@media (max-width: 460px) {
+  .setupPage {
+    background-size: 400px 752px;
+    background-position: center 60px !important;
+    padding: 28px 18px 18px 18px !important;
+    overflow: hidden;
+  }
+
+  .setupMrBaoPanel {
+    width: 352px;
+    height: 80px;
+    background-size: 352px 80px;
+    margin: 4px auto 10px !important;
+    transform: translateY(44px);
+  }
+
+  .setupStepRow {
+    width: 400px;
+    left: 50%;
+    grid-template-columns: 30px 352px 30px;
+    column-gap: 2px;
+    justify-content: center;
+    transform: translateX(-50%) translateY(44px);
+  }
+
+  .setupArrowBtn {
+    width: 30px;
+    height: 45px;
+  }
+
+  .setupArrowBtn img {
+    width: 30px;
+    height: 45px;
+  }
+
+  .setupStepsBar {
+    width: 352px;
+    height: 72px;
+    background-size: 352px 72px;
+  }
+
+  .message {
+    width: 368px;
+    transform: translateY(46px);
+  }
+
+  .presetGrid {
+    grid-template-columns: repeat(2, 184px);
+    gap: 10px;
+    margin: -4px auto 0;
+    padding: 0 0 24px;
+    transform: translateY(44px);
+  }
+
+  .presetTile,
+  .presetTileCardImg {
+    width: 184px;
+    height: 248px;
+  }
+
+  .presetTileCheck {
+    width: 30px;
+    height: 30px;
+  }
+}

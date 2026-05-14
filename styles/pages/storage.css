@@ -1,0 +1,925 @@
+/* styles/pages/storage.css */
+
+:root {
+  --storage-nav-space: 88px;
+  --storage-hud-h: 180px;
+  --storage-main-scale: 0.9;
+  --storage-grid-scale: 0.95;
+}
+
+#pageStorage {
+  background: #ffbb87;
+  min-height: 100svh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+#storagePageMain.pageMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: calc(100svh - var(--storage-nav-space) - env(safe-area-inset-bottom));
+  padding: 8px 8px 0; /* match other pages more closely */
+  box-sizing: border-box;
+  background: #ffbb87;
+  overflow: hidden;
+}
+
+/* =========================
+   TOP HUD
+========================= */
+
+.storageTopStatsCard {
+  width: 400px !important;
+  height: var(--storage-hud-h) !important;
+  margin: 0 auto 6px !important; /* slightly more normal spacing */
+  background-size: 400px var(--storage-hud-h) !important;
+  flex: 0 0 auto;
+}
+
+/* ---------- storage avatar fix ---------- */
+.storageAvatarBtn {
+  position: absolute !important;
+  left: 10px !important;
+  top: 10px !important;
+  width: 80px !important;
+  height: 80px !important;
+  z-index: 12 !important;
+
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+.storageAvatarBtn::before,
+.storageAvatarBtn::after {
+  display: none !important;
+  content: none !important;
+}
+
+.storageAvatarLarge {
+  display: block !important;
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: contain !important;
+  image-rendering: pixelated !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.storageSectionTitle {
+  width: 400px;
+  margin: 8px;
+  padding-left: 8px;
+  box-sizing: border-box;
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+  line-height: 1;
+  color: #5b2419;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+
+}
+
+/* =========================
+   MAIN BLOCK
+========================= */
+
+#storageMainBlock {
+  width: 400px;
+  height: 274px;
+  margin: 0 auto;
+  position: relative;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.storageMainStage {
+  width: 400px;
+  height: 304px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  transform: scale(var(--storage-main-scale));
+  transform-origin: top center;
+}
+
+.storageMainArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 45px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.storageMainArrowLeft { left: -8px; }
+.storageMainArrowRight { right: -8px; }
+
+.storageMainArrow img {
+  width: 30px;
+  height: 45px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.storageMainArrow.is-disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.storageInventoryBlock {
+  position: relative;
+  width: 344px;
+  height: 304px;
+  background-image: url("../../assets/storage/inventoryproductblock.png");
+  background-size: 344px 304px;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+}
+
+.storageProductImageWrap {
+  position: absolute;
+  left: 22px;
+  top: 24px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storageProductImage {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.storageNameLabel {
+  position: absolute;
+  left: 154px;
+  top: 18px;
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+  line-height: 1;
+  color: #5b2419;
+  text-transform: uppercase;
+}
+
+.storageNameInputWrap {
+  position: absolute;
+  left: 154px;
+  top: 42px;
+  width: 180px;
+  height: 36px;
+}
+
+.storageNameInputBg {
+  width: 180px;
+  height: 36px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.storageNameInput {
+  position: absolute;
+  inset: 0;
+  width: 180px;
+  height: 36px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 12px;
+  box-sizing: border-box;
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+  line-height: 1;
+  color: #E9742C;
+  text-transform: uppercase;
+}
+
+.storageNameInput:disabled {
+  opacity: 1;
+  color: #E9742C;
+}
+
+.storageCurrentPriceRow {
+  position: absolute;
+  left: 154px;
+  top: 86px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.storageCurrentPriceLabel {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+  text-transform: uppercase;
+}
+
+.storageCurrentPriceValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+}
+
+.storagePriceRow {
+  position: absolute;
+  left: 154px;
+  top: 112px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.storagePriceLabel {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.storagePriceCoinWrap {
+  display: flex;
+  align-items: center;
+}
+
+.storageCoinIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin-right: 0;
+}
+
+.storagePriceStepper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 2px;
+}
+
+.storageGrayValueBox {
+  width: 40px;
+  height: 30px;
+  background: #d8d8d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+  box-sizing: border-box;
+  flex: 0 0 30px;
+}
+
+.storageMiniArrowBtn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storageMiniArrowBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.storageMiniArrowBtn img {
+  display: block;
+  image-rendering: pixelated;
+}
+
+#storagePriceValue {
+  position: static;
+}
+
+.storageManufacturingRow {
+  position: absolute;
+  left: 24px;
+  top: 152px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.storageExpectedRow {
+  position: absolute;
+  left: 24px;
+  top: 180px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.storageCurrentQtyRow {
+  position: absolute;
+  left: 24px;
+  top: 208px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.storageCurrentQtyLabel {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+  text-transform: uppercase;
+}
+
+.storageCurrentQtyValue {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+}
+
+.storageQtyRow {
+  position: absolute;
+  left: 150px;
+  top: 208px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.storageInfoLineLabel {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #4D1F1D;
+  text-transform: uppercase;
+}
+
+.storageInfoLineValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+}
+
+.storageQtyLabel {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-right: 2px;
+}
+
+.storageQtyValueBox {
+  width: 50px;
+  height: 30px;
+}
+
+.storageMiniArrowSide {
+  width: 20px;
+  height: 30px;
+}
+
+.storageMiniArrowSide img {
+  width: 20px;
+  height: 30px;
+}
+
+.storageQtyProductIcon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex: 0 0 20px;
+}
+
+.storageActionRow {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.storageActionImageBtn {
+  position: relative;
+  width: 152px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.storageActionImageBtn img {
+  width: 152px;
+  height: 36px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.storageBuyBoxesBtn {
+  width: 152px;
+  height: 36px;
+}
+
+.storageMainOverlay {
+  position: absolute;
+  inset: 0;
+  width: 344px;
+  height: 304px;
+  display: block;
+  pointer-events: none;
+  image-rendering: pixelated;
+  z-index: 3;
+}
+
+.storageQtyRow.is-box {
+  left: 24px;
+}
+
+.storageCurrentBoxQtyRow {
+  position: absolute;
+  left: 154px;
+  top: 112px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.storageCurrentBoxQtyLabel {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+  text-transform: uppercase;
+}
+
+.storageCurrentBoxQtyIcon {
+  width: 30px;
+  height: 30px;
+  image-rendering: pixelated;
+  flex: 0 0 20px;
+}
+
+.storageCurrentBoxQtyValue {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #E9742C;
+}
+
+
+/* =========================
+   PILLS
+========================= */
+
+.storageBottomTabBar {
+  position: relative;
+  width: 400px;
+  height: 42px;
+  margin: 5px auto 0;
+  flex: 0 0 auto;
+  z-index: 30 !important;
+  pointer-events: auto !important;
+}
+
+.storageShelfTabsWrap {
+  position: absolute;
+  left: 22px;
+  top: 14px;
+  display: flex;
+  align-items: flex-end;
+  gap: 44px;
+  z-index: 31 !important;
+  pointer-events: auto !important;
+}
+
+.storageShelfPillBtn {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  appearance: none;
+  -webkit-appearance: none;
+  z-index: 31 !important;
+  pointer-events: auto !important;
+}
+
+.storageShelfPillImg {
+  display: block;
+  image-rendering: pixelated;
+}
+
+.storageShelfPillStorage {
+  width: 116px;
+  height: 28px;
+}
+
+.storageShelfPillShop {
+  width: 72px;
+  height: 28px;
+}
+
+/* =========================
+   GRID BLOCK
+========================= */
+
+.storageGridWrap {
+  width: 400px;
+  height: 219px;
+  margin: -35px auto 0;
+  position: relative;
+  flex: 0 0 auto;
+  overflow: visible;
+  z-index: 1 !important;
+}
+
+.storageShelfGridPanel {
+  position: relative;
+  width: 400px;
+  height: 230px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 400px 230px;
+  transform: scale(var(--storage-grid-scale));
+  transform-origin: top center;
+}
+
+.storageShelfGrid {
+  position: absolute;
+  left: 50%;
+  top: 48px;
+  transform: translateX(-50%);
+  width: 356px;
+  height: 168px;
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(2, 80px);
+  gap: 12px;
+  justify-content: center;
+}
+
+.storageGridSlot {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.storageTileBtn {
+  cursor: pointer;
+}
+
+.storageGridTileBase,
+.storageGridTileBase.is-shop {
+  display: none;
+}
+
+.storageGridSlotEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storageEmptyTileImg {
+  width: 80px;
+  height: 80px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.storageGridTileImage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  image-rendering: pixelated;
+  z-index: 2;
+}
+
+.storageGridTileFrame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 96px;
+  height: 96px;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.storageGridTileOverlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.storageGridTileLock {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.storageGridArrow {
+  position: absolute;
+  top: 118px;
+  width: 30px;
+  height: 45px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.storageGridArrowLeft { left: -15px; }
+.storageGridArrowRight { right: -15px; }
+
+.storageGridArrow img {
+  width: 30px;
+  height: 45px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.storageGridArrow.is-disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.storageMainOverlay {
+  position: absolute;
+  inset: 0;
+  width: 344px;
+  height: 304px;
+  display: block;
+  pointer-events: none;
+  image-rendering: pixelated;
+  z-index: 6;
+}
+
+.storageUnlockImageBtn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  z-index: 7;
+}
+
+.storageUnlockImageBtn > img {
+  width: 180px;
+  height: 36px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.storageUnlockCost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-left: 96px;
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #fff7ef;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.storageUnlockNumber {
+  display: block;
+  line-height: 1;
+}
+
+.storageUnlockCoin {
+  width: 20px !important;
+  height: 20px !important;
+  display: block;
+  image-rendering: pixelated;
+  flex: 0 0 20px;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+}
+
+/* =========================
+   BUTTON PRESS EFFECT
+========================= */
+
+.storageActionImageBtn:active,
+.storageShelfPillBtn:active,
+.storageGridArrow:active {
+  transform: scale(0.92);
+  filter: brightness(0.9);
+}
+
+.storageMainArrow:active {
+  transform: translateY(-50%) scale(0.92);
+  filter: brightness(0.9);
+}
+
+.storageUnlockImageBtn:active {
+  transform: translate(-50%, -50%) scale(0.92);
+  filter: brightness(0.9);
+}
+
+.storageMiniArrowBtn {
+  transition: transform 0.08s ease;
+}
+
+.storageMiniArrowBtn:active {
+  transform: scale(0.88);
+  filter: brightness(0.9);
+}
+
+/* =========================
+   INSUFFICIENT FUNDS POPUP
+========================= */
+
+.insufficientFundsModal {
+  width: 400px;
+  height: 280px;
+  background-image: url("../../assets/popup/warningmodal.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+.popupCloseX {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.popupCloseX img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.popupTitle {
+  font-family: "Tiny5", cursive;
+  font-size: 25px;
+  color: #E9742C;
+  margin-top: 75px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.popupIconContainer {
+  margin-top: 5px;
+}
+
+.popupWarningImg {
+  width: 80px;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.popupMessage {
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+  color: #4D1F1D;
+  line-height: 1.3;
+  text-transform: uppercase;
+  max-width: 320px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+@media (max-width: 460px) {
+  :root {
+    --storage-main-scale: 0.96; /* bigger product inventory block */
+    --storage-grid-scale: 0.95;
+  }
+
+  #storagePageMain.pageMain {
+    padding-top: 46px !important;
+  }
+
+  .storageTopStatsCard {
+    margin: 0 auto 6px !important;
+  }
+
+  #storageMainBlock {
+    height: 292px; /* gives the bigger inventory block more room */
+  }
+
+  .storageMainStage {
+    transform: scale(var(--storage-main-scale));
+  }
+
+  .storageBottomTabBar {
+    margin-top: -10px; /* smaller gap between inventory block and tabs */
+  }
+
+  .storageShelfTabsWrap {
+    top: 20px;
+  }
+
+  .storageShelfTabsWrap {
+    top: 24px; /* moves the selected block/tab images lower */
+  }
+
+  .storageGridWrap {
+    margin-top: -26px; /* adjust shelf grid after tabs move down */
+  }
+}

@@ -1,0 +1,105 @@
+body {
+  font-family: "Micro 5", monospace;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.topTitle {
+  text-align: center;
+  font-family: "Tiny5", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #f2f2f2;
+}
+
+.label {
+  font-family: "Micro 5", monospace;
+  font-size: 20px;
+  margin: 10px 12px 6px;
+  text-transform: uppercase;
+}
+
+.smallText {
+  font-family: "Micro 5", monospace;
+  font-size: 20px;
+  margin: 6px 12px;
+  text-transform: uppercase;
+}
+
+.message {
+  font-family: "Micro 5", monospace;
+  font-size: 20px;
+  min-height: 18px;
+  margin: 10px 12px;
+  color: var(--taobao-orange);
+  text-transform: uppercase;
+}
+
+.hudStoreName,
+.modalTitle,
+.assistHeader,
+.pwName,
+.startupCardTitle,
+.managerSidebarTitle,
+.managerSidebarStore,
+.managerWelcome,
+.managerMiniTitle,
+.managerProductMiniName,
+.chatEmptyTitle,
+.chatName,
+.chatroomName,
+.order-name,
+.homeProductTitle,
+.bestsellerTitle,
+.homeSectionTitle,
+.shippingCardTitle,
+.productOrderTitle,
+.productsSectionTitle,
+.productMainName {
+  font-family: "Tiny5", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.hudMeta,
+.hudChip,
+.pwLabel,
+.pwSub,
+.startupLabel,
+.startupValue,
+.startupHelp,
+.tab,
+.tabBadge,
+.order-items,
+.order-total,
+.order-timer,
+.chatPreview,
+.chatroomSub,
+.msgName,
+.msgBubble,
+.msgSystem,
+.liveTimer,
+.liveHoldLabel,
+.liveViewPill,
+.liveChatName,
+.liveChatText,
+.managerStatValue,
+.managerStatLabel,
+.managerMiniValue,
+.managerAxisText,
+.managerAxisTitle,
+.managerProductMiniSold,
+.productsIntroText,
+.productsBalanceText,
+.coinRow,
+.coinLabelDark,
+.inventoryQtyBox,
+.productsMessageInline {
+  font-family: "Micro 5", monospace;
+  font-size: 20px;
+  text-transform: uppercase;
+}

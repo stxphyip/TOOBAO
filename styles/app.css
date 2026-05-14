@@ -1,0 +1,269 @@
+/* Base */
+@import "./base/variables.css";
+@import "./base/layout.css";
+@import "./base/typography.css";
+
+/* Components */
+@import "./components/topbar.css";
+@import "./components/inputs.css";
+@import "./components/avatars.css";
+@import "./components/products-grid.css";
+@import "./components/steppers.css";
+@import "./components/buttons.css";
+@import "./components/home-feed.css";
+@import "./components/nav.css";
+@import "./components/toast.css";
+@import "./components/help-cards.css"; 
+
+/* Modals */
+@import "./modals/overlays.css";
+@import "./modals/modal-shell.css";
+@import "./modals/edit-product.css";
+@import "./modals/day-overlay.css";
+@import "./modals/add-product.css";
+@import "./modals/tasks.css";
+
+/* Pages */
+@import "./pages/start.css";
+@import "./pages/tutorial.css";
+@import "./pages/setup.css";
+@import "./pages/products.css";
+@import "./pages/pricing.css";
+@import "./pages/home.css";
+@import "./pages/storage.css";
+@import "./pages/marketing.css";
+@import "./pages/orders.css";
+@import "./pages/messages.css";
+@import "./pages/chat.css";
+@import "./pages/manager.css";
+
+@import "./components/top-hud.css";
+
+/* =========================
+   STAR LEVEL POPUP
+========================= */
+
+.starLevelPopupOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ background: rgba(40, 40, 40, 0.78);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.starLevelPopupOverlay.is-showing {
+  opacity: 1;
+}
+
+.starLevelPopupCard {
+  width: 320px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  transform: scale(0.82);
+  animation: starPopupCardPop 6s ease forwards;
+}
+
+.starLevelPopupText {
+  font-family: "Tiny5", cursive;
+  font-size: 34px;
+  line-height: 1;
+  color: #fff7ef;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.starLevelPopupSubtext {
+  font-family: "Micro 5", cursive;
+  font-size: 26px;
+  line-height: 1;
+  color: #fff7ef;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.starLevelAnimWrap {
+  position: relative;
+  width: 210px;
+  height: 190px;
+  display: grid;
+  place-items: center;
+}
+
+.starLevelMainStar {
+  width: 112px;
+  height: auto;
+  image-rendering: pixelated;
+  transform-origin: center;
+  animation: starGrowPulse 6s ease forwards;
+}
+
+.starLevelPopupOverlay.is-star-down .starLevelMainStar {
+  animation: starShrinkShake 6s ease forwards;
+}
+
+.starSparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff7ef;
+  image-rendering: pixelated;
+  opacity: 0;
+  box-shadow:
+    28px 0 #F6B23C,
+    -28px 0 #F6B23C,
+    0 28px #E9742C,
+    0 -28px #E9742C;
+}
+
+.is-star-down .starSparkle {
+  background: #E9742C;
+  box-shadow:
+    28px 0 #F6B23C,
+    -28px 0 #F6B23C,
+    0 28px #E9742C,
+    0 -28px #E9742C;
+  animation: sparkleFall 6s ease forwards;
+}
+
+.is-star-up .starSparkle {
+  animation: sparklePop 6s ease forwards;
+}
+
+
+.sparkle-1 { left: 18px; top: 42px; animation-delay: 0.25s; }
+.sparkle-2 { right: 22px; top: 30px; animation-delay: 0.45s; }
+.sparkle-3 { left: 28px; bottom: 36px; animation-delay: 0.65s; }
+.sparkle-4 { right: 34px; bottom: 34px; animation-delay: 0.85s; }
+.sparkle-5 { left: 100px; top: 6px; animation-delay: 1.05s; }
+
+@keyframes starPopupCardPop {
+  0% {
+    transform: scale(0.72);
+  }
+
+  16% {
+    transform: scale(1.05);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  86% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes starGrowPulse {
+  0% {
+    transform: scale(0.2) rotate(-8deg);
+    opacity: 0;
+  }
+
+  18% {
+    transform: scale(1.18) rotate(5deg);
+    opacity: 1;
+  }
+
+  30% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  58% {
+    transform: scale(1.08);
+  }
+
+  76% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes starShrinkShake {
+  0% {
+    transform: scale(1.2) rotate(0deg);
+    opacity: 0;
+  }
+
+  14% {
+    transform: scale(1) rotate(-7deg);
+    opacity: 1;
+  }
+
+  24% {
+    transform: scale(0.94) rotate(7deg);
+  }
+
+  34% {
+    transform: scale(0.96) rotate(-5deg);
+  }
+
+  48% {
+    transform: scale(0.92) rotate(3deg);
+  }
+
+  100% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes sparklePop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  24% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+
+  56% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.2) translateY(-18px);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkleFall {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  24% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.4) translateY(28px);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,91 @@
+/* styles/components/topbar.css */
+
+.hud {
+  padding: 10px 12px 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 2px solid rgba(0,0,0,0.10);
+  backdrop-filter: blur(8px);
+}
+
+.hud.hidden {
+  display: none;
+}
+
+.hudProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hudAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(0,0,0,0.10);
+}
+
+.hudProfileText {
+  flex: 1;
+  min-width: 0;
+}
+
+.hudStoreName {
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hudMeta {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-top: 2px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.hudEditBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hudEditBtn img {
+  width: 100px;
+  height: 34px;
+}
+
+.hudStats {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.hudChip {
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(231, 89, 0, 0.10);
+  border: 2px solid rgba(231, 89, 0, 0.18);
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.hudChipBtn {
+  cursor: pointer;
+}
+
+.hudChipBtn:active {
+  transform: translateY(1px);
+}

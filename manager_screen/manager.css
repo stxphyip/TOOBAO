@@ -1,0 +1,31 @@
+/* manager_screen/manager.css */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #FFBB87;
+  overflow: hidden;
+}
+
+#appRoot.managerApp {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  background: #FFBB87;
+}
+
+#pageManager.managerPage {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: #FFBB87;
+}
+
+#pageManager.managerPage.show {
+  display: block;
+}
+
+.managerShell {
+  margin: 0 auto;
+}

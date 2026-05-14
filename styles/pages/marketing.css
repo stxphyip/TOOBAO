@@ -1,0 +1,480 @@
+/* styles/pages/marketing.css */
+
+#pageMarketing {
+  padding-bottom: 0;
+  min-height: auto;
+  overflow: hidden;
+  background: #FFBB87;
+}
+
+#pageMarketing .pageMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px 0 86px;
+  box-sizing: border-box;
+  background: #FFBB87;
+}
+/* =========================
+   TOP PIXEL HUD
+========================= */
+
+.marketingTopStatsCard {
+  width: 400px;
+  margin: 0 auto 6px;
+  flex: 0 0 auto;
+}
+
+/* ---------- marketing avatar fix ---------- */
+.marketingAvatarBtn {
+  position: absolute !important;
+  left: 10px !important;
+  top: 10px !important;
+  width: 80px !important;
+  height: 80px !important;
+  z-index: 12 !important;
+
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+.marketingAvatarBtn::before,
+.marketingAvatarBtn::after {
+  display: none !important;
+  content: none !important;
+}
+
+.marketingAvatarLarge {
+  display: block !important;
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: contain !important;
+  image-rendering: pixelated !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+.marketingOrangeStatsRow {
+  position: absolute !important;
+  left: -90px !important;
+  top: 82px !important;
+  width: 380px !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 98px) !important;
+  column-gap: 0 !important;
+  z-index: 10 !important;
+}
+
+/* fix the BOXES stat button so it looks like the other stat blocks */
+#marketingBoxesBtn,
+.marketingBoxesStat {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* keep the image block styling */
+.marketingBoxesStat {
+  width: 88px !important;
+  height: 72px !important;
+  background-image: url("../../assets/top_hud/statblock.png") !important;
+  background-size: 88px 72px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  position: relative !important;
+  cursor: pointer;
+}
+
+/* icon placement inside the BOXES block */
+.marketingBoxesStat .marketingStatIcon {
+  position: absolute !important;
+  left: 50% !important;
+  top: 6px !important;
+  transform: translateX(-50%) !important;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+/* value placement inside the BOXES block */
+.marketingBoxesStat .marketingStatValue {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 34px !important;
+  text-align: center !important;
+  font-family: "Micro 5", cursive !important;
+  font-size: 20px !important;
+  color: #E9742C !important;
+  padding: 0 !important;
+}
+
+/* label under the number */
+.marketingBoxesStat::after {
+  content: "BOXES";
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 4px !important;
+  text-align: center !important;
+  font-family: "Micro 5", cursive !important;
+  font-size: 15px !important;
+  color: #4D1F1D !important;
+  text-transform: uppercase !important;
+  pointer-events: none;
+}
+
+
+
+/* title */
+
+.marketingSectionTitle {
+  width: 400px;
+  margin: 8px;
+  padding-left: 8px;
+  box-sizing: border-box;
+  font-family: "Tiny5", cursive;
+  font-size: 15px;
+  line-height: 1;
+  color: #5b2419;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+}
+
+/* phone livestream stage */
+
+.liveStage {
+  position: relative;
+  width: 420px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-image: url("../../assets/marketing/phonebg.png");
+  background-size: 420px 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 0 0 auto;
+}
+
+.liveStreamerImg {
+  position: absolute;
+  left: 4px;          /* moves camera left */
+  top: 54px;            /* moves camera up */
+  width: 412px;         /* slightly wider so it still fills the phone */
+  height: 375px;        /* slightly taller */
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.marketingP5Camera {
+  background: #2b1512;
+  overflow: hidden;
+}
+
+.marketingP5Camera canvas,
+.marketingP5Canvas {
+  width: 412px !important;
+  height: 375px !important;
+  display: block;
+  image-rendering: auto;      /* clearer real camera image */
+}
+
+/*
+  Messages should only appear:
+  - below the phone top area
+  - above the gray overlay
+*/
+.liveChatLane {
+  position: absolute;
+  left: 19px;
+  top: 59px;
+  width: 276px;
+  height: 369px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.liveHeartsLane {
+  position: absolute;
+  right: 17px;
+  top: 59px;
+  width: 114px;
+  height: 369px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.marketingGrayOverlay {
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  width: 414px;
+  height: 68px;
+  object-fit: contain;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.liveViewPill {
+  position: absolute;
+  top: 66px;
+  right: 20px;
+  width: 76px;
+  height: 26px;
+  background-image: url("../../assets/marketing/liveviewcount.png");
+  background-size: 76px 26px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Micro 5", cursive;
+  font-size: 19px;
+  line-height: 1;
+  color: #4D1F1D;
+  box-sizing: border-box;
+}
+
+.liveViewPillIcon {
+  position: absolute;
+  left: 8px;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.liveViewPillValue {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+  padding-left: 30px;
+  padding-right: 9px;
+}
+
+/* chat bubbles */
+
+.liveChatMsg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  opacity: 0.98;
+  animation: marketingChatFloat 3.4s linear forwards;
+}
+
+.liveChatAvatar {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  display: block;
+  border-radius: 999px;
+  flex: 0 0 38px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.liveChatBubble {
+  position: relative;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.liveChatBubble.is-small {
+  width: 138px;
+}
+
+.liveChatBubble.is-medium {
+  width: 192px;
+}
+
+.liveChatBubble.is-large {
+  width: 230px;
+}
+
+.liveChatBubbleImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 38px;
+  object-fit: fill;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.liveChatBubbleText {
+  position: relative;
+  z-index: 1;
+  padding: 0 15px;
+  width: 100%;
+  color: #4D1F1D;
+  font-family: "Micro 5", cursive;
+  font-size: 19px;
+  line-height: 1;
+  text-transform: lowercase;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* hearts */
+
+.liveHeartImg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  opacity: 0.95;
+  animation: marketingHeartFloat 2.8s ease-out forwards;
+}
+
+/* controls */
+
+.liveControls {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  transform: translateX(-50%);
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  z-index: 4;
+}
+
+.liveTimer {
+  font-family: "Micro 5", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #4D1F1D;
+  text-transform: uppercase;
+  margin-bottom: -4px;
+}
+
+.liveHoldBtn {
+  width: 94px;
+  height: 94px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liveHoldBtn img {
+  width: 94px;
+  height: 94px;
+  display: block;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transition: transform 0.08s ease;
+}
+
+.liveHoldBtn.holding img {
+  transform: scale(0.97);
+}
+
+.liveHoldLabel {
+  font-family: "Micro 5", cursive;
+  font-size: 19px;
+  line-height: 1;
+  color: #fff7ef;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  top: -8px;
+}
+
+@keyframes marketingChatFloat {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.98;
+  }
+  to {
+    transform: translateY(-180px);
+    opacity: 0;
+  }
+}
+
+@keyframes marketingHeartFloat {
+  from {
+    transform: translateY(0) translateX(0) scale(var(--heart-scale, 1));
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.95;
+  }
+  to {
+    transform: translateY(-180px) translateX(var(--drift-x, 0px)) scale(calc(var(--heart-scale, 1) + 0.08));
+    opacity: 0;
+  }
+}
+
+@media (max-width: 460px) {
+  #pageMarketing .pageMain {
+    padding-top: 46px !important;
+    padding-bottom: 86px;
+    overflow: hidden;
+  }
+
+  .marketingTopStatsCard {
+    width: 400px !important;
+    margin: 0 auto 6px !important;
+    flex: 0 0 auto;
+    transform: none !important;
+    transform-origin: top center;
+  }
+
+  .marketingSectionTitle {
+    width: 420px;
+    margin: 8px auto;
+  }
+
+  .liveStage {
+    width: 420px;
+    height: 500px;
+    margin: 0 auto;
+  }
+}

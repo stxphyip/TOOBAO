@@ -1,0 +1,147 @@
+/* styles/components/products-grid.css */
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0 12px;
+  margin-bottom: 12px;
+}
+
+/* Default product tile = compact */
+.productTile {
+  border: 1px solid var(--taobao-border);
+  border-radius: 14px;
+  padding: 8px;
+  background: white;
+
+  height: auto;
+  overflow: visible;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.productTile.selected {
+  border: 3px solid var(--taobao-orange);
+}
+
+.productPhotoBtn {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.productPhoto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--taobao-border);
+  display: block;
+}
+
+.productNameSmall {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 2px 0 0;
+  text-align: center;
+  line-height: 1.15;
+}
+
+/* =========================================
+   COMPACT STEPPER (default)
+========================================= */
+
+.productTile .stepRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  margin: 0;
+  text-align: center;
+}
+
+.productTile .stepLabel {
+  font-weight: 900;
+  font-size: 10px;
+  opacity: 0.75;
+  line-height: 1.1;
+}
+
+.productTile .stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.productTile .stepBtn {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.95);
+  cursor: pointer;
+  padding: 0;
+}
+
+.productTile .stepBtn:active {
+  transform: scale(0.9);
+}
+
+.productTile .stepNum {
+  min-width: 28px;
+  padding: 3px 4px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+
+  background: rgba(231, 89, 0, 0.10);
+  border: 1px solid rgba(231, 89, 0, 0.15);
+}
+
+.productTile .smallText {
+  font-size: 10px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .productsGrid { gap: 14px; }
+}
+
+/* =========================================
+   Startup supplies panel
+========================================= */
+
+.startupPanel {
+  border: 2px solid var(--taobao-border);
+  background: var(--taobao-orange-light);
+  border-radius: 16px;
+  padding: 12px;
+  margin: 10px 12px 10px;
+}
+
+.startupRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.startupLabel {
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.startupValue {
+  font-weight: 900;
+  font-size: 16px;
+}
